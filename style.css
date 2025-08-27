@@ -1,6 +1,6 @@
 /* ============ Theme Vars ============ */
 :root{
-  --bg:#0f1220;           /* fallback behind photo */
+  --bg:#0f1220;
   --panel:#14182a;
   --panel-2:#101427;
   --text:#e9edf1;
@@ -19,44 +19,69 @@ body{
   background-size:cover;
   color:var(--text);
   font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 body::before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.55));pointer-events:none;z-index:0}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%;display:block}
 
-/* ============ Layout ============ */
+/* ============ Header + Tabs ============ */
+.site-header {
+  position: sticky; top: 0; z-index: 5;
+  background: rgba(15,18,32,.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex; justify-content: center; align-items: center;
+  height: 64px;
+}
+.nav.centered {
+  display: flex; gap: 16px;
+}
+.tab {
+  display: inline-block;
+  padding: .5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(20,24,42,.65);
+  color: var(--muted);
+  transition: all .15s ease;
+}
+.tab:hover { color: var(--text); background: rgba(20,24,42,.85); text-decoration: none; }
+.tab.active {
+  color: var(--text);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.tab-spacer { height: 1px; background: var(--border); }
+
+/* ============ Layout with sidebar ============ */
+.layout { display: flex; }
 .sidebar{
-  position:fixed; left:0; top:0; bottom:0; width:300px;
-  background:rgba(20,24,42,.9);
+  width: 260px; flex-shrink:0;
+  background: rgba(20,24,42,.9);
   border-right:1px solid var(--border);
   box-shadow:var(--shadow);
-  z-index:2;
 }
-.sidebar-inner{padding:24px 20px; position:relative}
+.sidebar-inner{padding:24px 20px; text-align:center;}
 .avatar{
-  width:140px; height:140px; object-fit:cover; margin:4px auto 12px;
+  width:120px; height:120px; object-fit:cover; margin:0 auto 12px;
   border-radius:50%; border:2px solid var(--border); box-shadow:var(--shadow);
   background:var(--panel-2);
 }
-.name{text-align:center; font-size:1.35rem; font-weight:800; letter-spacing:.2px}
-.role{text-align:center; color:var(--muted); margin-top:2px; margin-bottom:12px}
-
-.contact{margin-top:18px}
-.contact h2{font-size:1rem; letter-spacing:.2px; color:var(--text); margin-bottom:.4rem}
-.contact ul{list-style:none}
-.contact li{margin:.25rem 0}
+.name{font-size:1.3rem;font-weight:800;}
+.role{color:var(--muted);margin-bottom:12px;}
+.contact h2{font-size:1rem;margin-bottom:.4rem;}
+.contact ul{list-style:none;padding:0}
+.contact li{margin:.3rem 0}
 .contact a{color:var(--text)}
-.contact a:hover{opacity:.9}
 
+/* Main area */
 .main{
-  position:relative; z-index:1;
-  max-width:1000px; margin-left:300px;  /* leave space for sidebar */
+  flex:1;
   padding:28px 24px;
 }
-
-/* ============ Cards / Content ============ */
 .card{
   background:rgba(20,24,42,.9);
   border:1px solid var(--border);
@@ -69,23 +94,22 @@ h2{font-size:1.4rem; margin-bottom:.5rem}
 .text-muted{color:var(--muted)}
 .list{margin-top:.25rem; padding-left:1rem}
 .list li{margin:.25rem 0; color:var(--muted)}
-.two-col{
-  columns:2; column-gap:28px;
-}
-@media (max-width:680px){
-  .two-col{columns:1}
+.two-col{columns:2; column-gap:28px;}
+@media (max-width:680px){.two-col{columns:1}}
+
+/* ============ Footer ============ */
+.site-footer{
+  border-top:1px solid var(--border);
+  padding:1rem;
+  color:var(--muted);
+  text-align:center;
+  background:rgba(15,18,32,.85);
 }
 
-/* ============ Responsive (sidebar collapses) ============ */
+/* ============ Responsive ============ */
 @media (max-width:900px){
-  .sidebar{position:static; width:auto; height:auto; border-right:none; border-bottom:1px solid var(--border)}
-  .sidebar-inner{display:flex; align-items:center; gap:14px; justify-content:flex-start}
-  .avatar{width:64px; height:64px; margin:0}
-  .name,.role{text-align:left}
-  .main{margin-left:0; padding:20px}
-}
-
-/* Optional subtle separators for sections inside sidebar */
-.sidebar-inner::after{
-  content:""; display:block; margin-top:14px; height:1px; background:var(--border); opacity:.7;
+  .layout{flex-direction:column;}
+  .sidebar{width:100%;border-right:none;border-bottom:1px solid var(--border);}
+  .main{padding:20px;}
+  .avatar{width:80px;height:80px;}
 }
