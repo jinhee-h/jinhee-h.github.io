@@ -3,53 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home – Jinhee Han</title>
+  <title>Jinhee Han – Portfolio</title>
+  <meta name="description" content="Engineering portfolio of Jinhee Han." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <nav class="nav">
-        <a class="tab active" href="index.html">Home</a>
-        <a class="tab" href="experiences.html">Experiences</a>
-        <a class="tab" href="projects.html">Projects</a>
-      </nav>
-    </div>
-    <div class="tab-spacer"></div>
-  </header>
+  <!-- Left sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <img class="avatar" src="assets/profile.jpg" alt="Portrait of Jinhee Han" />
+      <h1 class="name">Jinhee Han</h1>
+      <p class="role">Mechanical Engineer</p>
 
-  <main class="container">
-    <section class="hero">
-      <h1 class="display">Engineering Portfolio</h1>
+      <div class="contact">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:you@example.com">you@example.com</a></li>
+          <li><a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a></li>
+          <!-- add/remove items as needed -->
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <section class="card">
+      <h2>About</h2>
+      <p class="text-muted">
+        Boston-based mechanical engineering student focused on practical design and implementation.
+        Interested in prototyping, manufacturing, and crossover projects with software and data.
+      </p>
     </section>
 
-    <section class="grid">
-      <article class="card">
-        <h3>About</h3>
-        <p class="text-muted">
-          Boston-based mechanical engineering student focused on practical design and implementation.
-          Interested in prototyping, manufacturing, and cross-over projects with software and data.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Skills</h3>
-        <ul class="list">
-          <li>CAD: SolidWorks, Fusion 360</li>
-          <li>Prototyping: 3D printing, machining basics</li>
-          <li>Programming: Python, basic embedded (Arduino)</li>
-          <li>Data/Tools: Excel, MATLAB, basic FEA</li>
-        </ul>
-      </article>
+    <section class="card">
+      <h2>Skills</h2>
+      <ul class="list two-col">
+        <li>CAD: SolidWorks, Fusion 360</li>
+        <li>Prototyping: 3D printing, machining basics</li>
+        <li>Programming: Python, Arduino</li>
+        <li>Analysis: MATLAB, basic FEA</li>
+        <li>Docs & BOMs</li>
+        <li>Testing & Fixtures</li>
+      </ul>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="footer-contacts">
-      Contact: <a href="mailto:you@example.com">you@example.com</a> ·
-      <a href="https://www.linkedin.com/in/your-handle" target="_blank">LinkedIn</a>
-    </div>
-    <div class="footer-credits">© 2025 Made using Github</div>
-  </footer>
 </body>
 </html>
