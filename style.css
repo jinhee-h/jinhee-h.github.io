@@ -1,6 +1,6 @@
 /* ============ Theme Variables ============ */
 :root {
-  --bg: #0f1220;        /* fallback bg color behind the photo */
+  --bg: #0f1220;        /* fallback behind photo */
   --panel: #14182a;
   --text: #e9edf1;
   --muted: #aab3c2;
@@ -23,7 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark overlay for readability on bright images */
+/* Dark overlay for readability */
 body::before {
   content: "";
   position: fixed;
@@ -41,14 +41,16 @@ img { max-width: 100%; display: block; }
 .container { max-width: 1000px; padding: 0 20px; margin: 0 auto; position: relative; z-index: 1; }
 main { padding: 2rem 0; }
 h1, h2, h3 { line-height: 1.25; margin: 0 0 .6rem; }
-h1 { font-size: 2.1rem; }
+h1 { font-size: 2rem; }        /* default */
 h2 { font-size: 1.5rem; margin-top: 1.6rem; }
 h3 { font-size: 1.15rem; }
 p + p { margin-top: .5rem; }
 .text-muted { color: var(--muted); }
-.display { font-size: clamp(2.2rem, 4vw + 1rem, 3rem); line-height: 1.1; }
 
-/* ============ Header + Tabs ============ */
+/* Display hero title: smaller per request */
+.display { font-size: clamp(1.8rem, 3.2vw + .8rem, 2.4rem); line-height: 1.1; }
+
+/* ============ Header + Boxed Tabs ============ */
 .site-header {
   position: sticky; top: 0; z-index: 5;
   background: rgba(15,18,32,.75);
@@ -63,32 +65,33 @@ p + p { margin-top: .5rem; }
 .brand { font-weight: 700; letter-spacing: .3px; color: var(--text); }
 .nav {
   display: flex;
-  gap: 14px;
+  gap: 10px;
   margin-left: auto;   /* push tabs to the right */
 }
 
 .tab {
   display: inline-block;
   padding: .5rem .9rem;
-  border: 1px solid var(--border);
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  background: rgba(20,24,42,.6);
+  border: 1px solid var(--border);           /* full box */
+  border-radius: var(--radius);              /* rounded edges */
+  background: rgba(20,24,42,.65);            /* boxed look even when inactive */
   color: var(--muted);
-  transition: color .15s ease, background .15s ease, transform .05s ease;
+  transition: color .15s ease, background .15s ease, transform .05s ease, box-shadow .15s ease;
 }
-.tab:hover { color: var(--text); text-decoration: none; }
+.tab:hover { color: var(--text); text-decoration: none; background: rgba(20,24,42,.85); }
 .tab:active { transform: translateY(1px); }
 .tab.active {
   color: var(--text);
-  background: var(--panel);
+  background: var(--panel);                  /* filled when active */
   box-shadow: var(--shadow);
+  border-color: var(--border);
 }
+
+/* we keep spacer thin, but tabs are boxed so it's subtle */
 .tab-spacer { height: 1px; background: var(--border); }
 
 /* ============ Sections / Cards ============ */
 .hero { padding: 2.2rem 0 1.2rem; }
-.hero .links { margin-top: 1rem; display: flex; gap: .6rem; flex-wrap: wrap; }
 
 .grid {
   display: grid;
@@ -104,6 +107,8 @@ p + p { margin-top: .5rem; }
   box-shadow: var(--shadow);
 }
 .card h3 { margin-bottom: .25rem; }
+.list { margin-top: .35rem; padding-left: 1rem; }
+.list li { margin: .25rem 0; color: var(--muted); }
 
 /* ============ Timeline (Experiences) ============ */
 .timeline { list-style: none; margin-top: .6rem; padding: 0; }
@@ -119,7 +124,7 @@ p + p { margin-top: .5rem; }
 .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
 .desc { color: var(--muted); margin-top: .35rem; }
 
-/* ============ Footer ============ */
+/* ============ Footer with Contact ============ */
 .site-footer {
   border-top: 1px solid var(--border);
   margin-top: 2rem;
@@ -129,6 +134,9 @@ p + p { margin-top: .5rem; }
   text-align: center;
   position: relative; z-index: 1;
 }
+.footer-contacts { margin-bottom: .5rem; }
+.footer-contacts a { color: var(--text); }
+.footer-credits { color: var(--muted); }
 
 /* ============ Buttons (optional) ============ */
 .btn {
@@ -143,15 +151,11 @@ p + p { margin-top: .5rem; }
 .btn:hover { text-decoration: none; filter: brightness(1.05); }
 .btn.outline { background: transparent; color: var(--text); border-color: var(--border); }
 
-/* ============ Utilities ============ */
-.hidden { display: none !important; }
-.center { text-align: center; }
-
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
   .brand { font-size: 1rem; }
-  h1 { font-size: 1.8rem; }
+  h1 { font-size: 1.6rem; }
 }
