@@ -1,6 +1,6 @@
 /* ============ Theme Variables ============ */
 :root {
-  --bg: #0f1220;        /* fallback behind photo */
+  --bg: #0f1220;
   --panel: #14182a;
   --text: #e9edf1;
   --muted: #aab3c2;
@@ -14,7 +14,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
 body {
-  position: relative; /* for overlay */
+  position: relative;
   background: var(--bg) url("assets/background.jpg") no-repeat center center fixed;
   background-size: cover;
   color: var(--text);
@@ -23,7 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark overlay for readability */
+/* Dark overlay */
 body::before {
   content: "";
   position: fixed;
@@ -35,22 +35,17 @@ body::before {
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-img { max-width: 100%; display: block; }
 
-/* ============ Layout Wrappers ============ */
+/* ============ Layout ============ */
 .container { max-width: 1000px; padding: 0 20px; margin: 0 auto; position: relative; z-index: 1; }
 main { padding: 2rem 0; }
 h1, h2, h3 { line-height: 1.25; margin: 0 0 .6rem; }
-h1 { font-size: 2rem; }        /* default */
+h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; margin-top: 1.6rem; }
 h3 { font-size: 1.15rem; }
-p + p { margin-top: .5rem; }
-.text-muted { color: var(--muted); }
-
-/* Display hero title: smaller per request */
 .display { font-size: clamp(1.8rem, 3.2vw + .8rem, 2.4rem); line-height: 1.1; }
 
-/* ============ Header + Boxed Tabs ============ */
+/* ============ Header ============ */
 .site-header {
   position: sticky; top: 0; z-index: 5;
   background: rgba(15,18,32,.75);
@@ -58,23 +53,22 @@ p + p { margin-top: .5rem; }
   border-bottom: 1px solid var(--border);
 }
 .header-inner {
-  display: flex; align-items: center; justify-content: flex-start;
+  display: flex;
+  justify-content: center;   /* center the nav */
+  align-items: center;
   height: 64px;
-  gap: 16px;
 }
-.brand { font-weight: 700; letter-spacing: .3px; color: var(--text); }
 .nav {
   display: flex;
-  gap: 10px;
-  margin-left: auto;   /* push tabs to the right */
+  gap: 14px;
 }
 
 .tab {
   display: inline-block;
   padding: .5rem .9rem;
-  border: 1px solid var(--border);           /* full box */
-  border-radius: var(--radius);              /* rounded edges */
-  background: rgba(20,24,42,.65);            /* boxed look even when inactive */
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(20,24,42,.65);
   color: var(--muted);
   transition: color .15s ease, background .15s ease, transform .05s ease, box-shadow .15s ease;
 }
@@ -82,17 +76,13 @@ p + p { margin-top: .5rem; }
 .tab:active { transform: translateY(1px); }
 .tab.active {
   color: var(--text);
-  background: var(--panel);                  /* filled when active */
+  background: var(--panel);
   box-shadow: var(--shadow);
-  border-color: var(--border);
 }
-
-/* we keep spacer thin, but tabs are boxed so it's subtle */
 .tab-spacer { height: 1px; background: var(--border); }
 
-/* ============ Sections / Cards ============ */
+/* ============ Cards / Sections ============ */
 .hero { padding: 2.2rem 0 1.2rem; }
-
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -110,7 +100,7 @@ p + p { margin-top: .5rem; }
 .list { margin-top: .35rem; padding-left: 1rem; }
 .list li { margin: .25rem 0; color: var(--muted); }
 
-/* ============ Timeline (Experiences) ============ */
+/* ============ Timeline ============ */
 .timeline { list-style: none; margin-top: .6rem; padding: 0; }
 .timeline li {
   background: rgba(20,24,42,.9);
@@ -124,7 +114,7 @@ p + p { margin-top: .5rem; }
 .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
 .desc { color: var(--muted); margin-top: .35rem; }
 
-/* ============ Footer with Contact ============ */
+/* ============ Footer ============ */
 .site-footer {
   border-top: 1px solid var(--border);
   margin-top: 2rem;
@@ -136,26 +126,11 @@ p + p { margin-top: .5rem; }
 }
 .footer-contacts { margin-bottom: .5rem; }
 .footer-contacts a { color: var(--text); }
-.footer-credits { color: var(--muted); }
-
-/* ============ Buttons (optional) ============ */
-.btn {
-  display: inline-block;
-  background: var(--accent);
-  color: #0b0e1a;
-  font-weight: 600;
-  padding: .55rem .9rem;
-  border-radius: var(--radius);
-  border: 1px solid transparent;
-}
-.btn:hover { text-decoration: none; filter: brightness(1.05); }
-.btn.outline { background: transparent; color: var(--text); border-color: var(--border); }
 
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
-  .brand { font-size: 1rem; }
   h1 { font-size: 1.6rem; }
 }
