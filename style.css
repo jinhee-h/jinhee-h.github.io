@@ -1,14 +1,14 @@
 /* ============ Theme Vars ============ */
-:root{
-  --bg:#0f1220;
-  --panel:#14182a;
-  --panel-2:#101427;
-  --text:#e9edf1;
-  --muted:#aab3c2;
-  --accent:#7aa2ff;
-  --border:#242a40;
-  --radius:14px;
-  --shadow:0 6px 20px rgba(0,0,0,.25);
+:root {
+  --bg: #0f1220;
+  --panel: #14182a;
+  --panel-2: #101427;
+  --text: #f5f7fa;     /* brighter than before */
+  --muted: #c7ced9;    /* lighter gray for secondary text */
+  --accent: #7aa2ff;
+  --border: #242a40;
+  --radius: 14px;
+  --shadow: 0 6px 20px rgba(0,0,0,.25);
 }
 
 /* ============ Base ============ */
