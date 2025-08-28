@@ -29,9 +29,30 @@
       text-align: center;
       padding: 12px 0;
       border-top: 1px solid var(--border);
-      /* transparent so your raw background photo is untouched */
       background: transparent;
       z-index: 100;
+    }
+    /* Optional: style for education list */
+    .education-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .education-list li {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .education-list strong {
+      display: block;
+      font-weight: 600;
+    }
+    .education-list span {
+      color: var(--muted);
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -90,10 +111,25 @@
           and software engineering.
         </p>
       </article>
+
+      <!-- New Education Section -->
+      <article class="card section">
+        <h2 class="section-title">Education</h2>
+        <ul class="education-list">
+          <li>
+            <strong>Northeastern University</strong>
+            <span>B.S. in Mechanical Engineering — Expected 2026</span>
+          </li>
+          <li>
+            <strong>Future Plans</strong>
+            <span>M.S. in Mechanical Engineering (Robotics/Mechatronics)</span>
+          </li>
+        </ul>
+      </article>
     </section>
   </main>
 
-  <!-- Footer: centered at bottom of entire screen -->
+  <!-- Footer -->
   <footer class="site-footer site-footer--fixed" role="contentinfo">
     <p>© <span id="year"></span> GitHub</p>
   </footer>
@@ -114,7 +150,7 @@
 
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', async (e) => {
-        e.preventDefault(); // don’t navigate; copy instead
+        e.preventDefault();
         const toCopy = btn.getAttribute('data-copy') || btn.textContent.trim();
         const originalHTML = btn.innerHTML;
 
@@ -124,7 +160,6 @@
           announce('Copied to clipboard');
           setTimeout(() => { btn.innerHTML = originalHTML; }, 1200);
         } catch (err) {
-          // Fallback if clipboard API fails
           const ta = document.createElement('textarea');
           ta.value = toCopy;
           document.body.appendChild(ta);
