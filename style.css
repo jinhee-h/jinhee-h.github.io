@@ -1,8 +1,8 @@
 /* ========== Theme ========== */
 :root {
   --panel-navy: #0A1730;          /* single navy */
-  --card: rgba(10, 23, 48, 0.90); /* 90% opaque, same base */
-  --card-strong: rgba(10, 23, 48, 0.95); /* slightly stronger but same hue */
+  --card: rgba(10, 23, 48, 0.50); /* 90% opaque, same base */
+  --card-strong: rgba(10, 23, 48, 0.75); /* slightly stronger but same hue */
   --text: #ffffff;
   --muted: #cbd5e1;
   --accent: #7aa2ff;
