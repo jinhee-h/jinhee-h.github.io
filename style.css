@@ -143,14 +143,13 @@ body{
   background: rgba(255,255,255,0.06);
 }
 
-/* Footer */
-.site-footer{
-  max-width: 1200px;
-  margin: 28px auto 40px;
-  padding: 0 20px;
-  color: var(--muted);
+/* Footer: full-width, centered, sits after all content */
+.site-footer--fixed {
+  position: static;         /* no overlap */
   text-align: center;
-  opacity: 0.95;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  background: transparent;
 }
 
 /* ========== Responsiveness ========== */
