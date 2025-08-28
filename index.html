@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Inline helpers + sticky footer fix -->
+  <!-- helpers + footer fix -->
   <style>
     .visually-hidden {
       position: absolute !important;
@@ -25,9 +25,9 @@
     /* Sticky (non-overlapping) footer layout */
     html, body { height: 100%; }
     body { min-height: 100vh; display: flex; flex-direction: column; }
-    main { flex: 1; } /* grows to keep footer at bottom when content is short */
+    main { flex: 1; }
 
-    /* Footer: normal flow, full-width, centered */
+    /* Footer */
     .site-footer--fixed {
       position: static !important;
       width: 100%;
@@ -35,8 +35,25 @@
       padding: 16px 0;
       border-top: 1px solid var(--border);
       background: transparent;
-      margin-top: auto; /* pushes footer to bottom when page is short */
+      margin-top: auto;
     }
+
+    /* Old-style education list (boxed entries) */
+    .education {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .education li {
+      background: rgba(20,24,42,.9);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+    .education .degree { font-weight: 600; }
+    .education .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -95,16 +112,17 @@
         </p>
       </article>
 
+      <!-- Education Section (old style restored) -->
       <article class="card section">
         <h2 class="section-title">Education</h2>
-        <ul class="education-list">
+        <ul class="education">
           <li>
-            <strong>Northeastern University</strong>
-            <span>B.S. in Mechanical Engineering — Expected 2026</span>
+            <div class="degree">Northeastern University</div>
+            <div class="meta">B.S. in Mechanical Engineering — Expected 2026</div>
           </li>
           <li>
-            <strong>Future Plans</strong>
-            <span>M.S. in Mechanical Engineering (Robotics/Mechatronics)</span>
+            <div class="degree">Future Plans</div>
+            <div class="meta">M.S. in Mechanical Engineering (Robotics/Mechatronics)</div>
           </li>
         </ul>
       </article>
