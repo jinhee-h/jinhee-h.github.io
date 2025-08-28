@@ -131,17 +131,14 @@ body{
 }
 .section p{ line-height: 1.7; color: #e6edf7; margin: 0; }
 
-/* Skills list */
-.skills{
-  list-style: none; padding: 0; margin: 0;
-  display: grid; gap: 10px;
-}
-.skills li{
-  padding: 10px 12px;
+.education li{
+  background: rgba(255,255,255,0.06); /* same as your email/skills/tabs */
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: rgba(255,255,255,0.06);
+  padding: 14px;
+  box-shadow: var(--shadow);
 }
+
 
 /* Footer: full-width, centered, sits after all content */
 .site-footer--fixed {
