@@ -1,8 +1,8 @@
 /* ========== Theme ========== */
-:root{
-  --bg-fallback: #0A1730;     /* shows while image loads / as fallback */
-  --card: rgba(10, 23, 48, 0.85);
-  --card-strong: rgba(14, 31, 58, 0.92);
+:root {
+  --panel-navy: #0A1730;          /* single navy */
+  --card: rgba(10, 23, 48, 0.90); /* 90% opaque, same base */
+  --card-strong: rgba(10, 23, 48, 0.95); /* slightly stronger but same hue */
   --text: #ffffff;
   --muted: #cbd5e1;
   --accent: #7aa2ff;
