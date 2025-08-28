@@ -40,7 +40,7 @@ body{
   max-width: 1200px;
   margin: 0 auto;
   padding: 14px 20px;
-  justify-content: flex-end;  /* <— add this line */
+  justify-content: center;  /* <— add this line */
 }
 
 .tab{
