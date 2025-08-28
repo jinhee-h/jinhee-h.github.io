@@ -27,12 +27,11 @@ body{
 
 /* ========== Top Nav (Tabs same as button style) ========== */
 .site-header{
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #0A1730; /* solid header strip */
+  position: sticky; top: 0; z-index: 10;
+  background: #14182A; /* unified deep navy (rgb(20,24,42)) */
   border-bottom: 1px solid var(--border);
 }
+
 
 .tabs{
   display: flex;
