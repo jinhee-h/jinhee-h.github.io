@@ -98,7 +98,7 @@ body{
   height: 100%;
   display: block;
   object-fit: cover;          /* fills circle without gaps */
-  object-position: 55% 50%;   /* nudge right a bit; adjust to taste */
+  object-position: 62% 50%;   /* nudge right a bit; adjust to taste */
   /* IMPORTANT: no transform, no weird width/height percentages */
 }
 
