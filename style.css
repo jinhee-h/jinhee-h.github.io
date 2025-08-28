@@ -1,29 +1,42 @@
 /* ========== Base ========== */
 :root{
-  --bg-navy: #0A1730;         /* deep navy */
-  --bg-navy-2: #0E1F3A;       /* slightly lighter */
+  --bg-navy: #0A1730;         /* deep navy fallback */
+  --bg-navy-2: #0E1F3A;
   --card: rgba(10, 23, 48, 0.78);
   --card-strong: rgba(14, 31, 58, 0.9);
   --text: #ffffff;
   --muted: #cbd5e1;
-  --accent: #7aa2ff;          /* subtle blue for focus/hover */
+  --accent: #7aa2ff;
   --border: rgba(255,255,255,0.1);
   --shadow: 0 8px 30px rgba(0,0,0,0.45);
   --radius: 18px;
 }
 
 * { box-sizing: border-box; }
-html, body {
-  height: 100%;
+html, body { height: 100%; }
+html { background: var(--bg-navy); } /* page background behind body */
+
+body{
   margin: 0;
   color: var(--text);
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  /* Layered background: gradient on top, image underneath */
-  background:
-    linear-gradient(180deg, rgba(10,23,48,0.75), rgba(10,23,48,0.85)),
-    url('assets/background.jpg') center / cover no-repeat fixed;
-  /* If your file is .jpeg, change to url('assets/background.jpeg') */
-  background-color: var(--bg-navy); /* solid fallback */
+  /* —— Explicit multi-background (image under gradient) —— */
+  background-color: var(--bg-navy);
+  background-image:
+    linear-gradient(180deg, rgba(10,23,48,0.70), rgba(10,23,48,0.82)),
+    url("assets/background.jpg");   /* change to .jpeg if that’s the actual file */
+  background-position: center center, center center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-attachment: fixed, fixed;
+  min-height: 100vh;
+}
+
+/* iOS/Safari fallback: avoid `fixed` which can blank images on some GPUs */
+@supports (-webkit-touch-callout: none) {
+  body{
+    background-attachment: scroll, scroll;
+  }
 }
 
 /* ========== Top Nav ========== */
@@ -76,77 +89,4 @@ html, body {
 .tagline{ margin: 0 0 14px; color: var(--muted); font-weight: 400; }
 
 .contact{
-  display: grid; gap: 10px; width: 100%;
-}
-.contact-item{
-  color: var(--text);
-  text-decoration: none;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(255,255,255,0.03);
-  transition: background .15s ease, border-color .15s ease, transform .06s ease;
-}
-.contact-item:hover{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateY(-1px); }
-
-/* Content */
-.content{
-  display: grid; gap: 22px;
-}
-
-/* Cards / Sections */
-.card{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-.profile{ background: var(--card-strong); }
-
-.section{ padding: 22px; }
-.section-title{
-  margin: 0 0 12px;
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: .3px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-  padding-bottom: 8px;
-}
-.section p{
-  line-height: 1.7;
-  color: #e6edf7;
-  margin: 0;
-}
-
-/* Skills list */
-.skills{
-  list-style: none; padding: 0; margin: 0;
-  display: grid; gap: 10px;
-}
-.skills li{
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(255,255,255,0.03);
-}
-
-/* Footer */
-.site-footer{
-  max-width: 1200px;
-  margin: 28px auto 40px;
-  padding: 0 20px;
-  color: var(--muted);
-  text-align: center;
-  opacity: 0.9;
-}
-
-/* ========== Responsiveness ========== */
-@media (max-width: 960px){
-  .container{ grid-template-columns: 1fr; }
-  .sidebar .profile{ position: static; }
-  .tabs{ justify-content: center; flex-wrap: wrap; }
-  .avatar{ width: 136px; height: 136px; }
-}
-@media (prefers-reduced-motion: no-preference){
-  .tab, .contact-item{ will-change: transform; }
-}
+  display: grid; gap:
