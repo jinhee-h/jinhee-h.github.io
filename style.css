@@ -111,14 +111,15 @@ body{
 .content{ display: grid; gap: 22px; }
 
 /* Cards / Sections */
-.card{
-  /* opaque-ish panels for readability on busy photos */
-  background: var(--card);
+.card {
+  background: rgba(20,24,42,.9); /* deep navy like Education */
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
-.profile{ background: var(--card-strong); }
+.profile {
+  background: rgba(20,24,42,.9);
+}
 
 .section{ padding: 22px; }
 .section-title{
