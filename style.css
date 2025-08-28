@@ -92,8 +92,8 @@ body{
 
   /* Avatar image control */
   background-image: url('assets/profile.jpg');
-  background-size: 120%;         /* >100% = zoom in, try 120–160% */
-  background-position: 55% 50%;  /* first = left/right, second = up/down */
+  background-size: 115%;         /* >100% = zoom in, try 120–160% */
+  background-position: 50% 50%;  /* first = left/right, second = up/down */
   background-repeat: no-repeat;
   background-color: #0E1426;     /* fallback navy */
 }
