@@ -18,22 +18,12 @@ html, body {
   margin: 0;
   color: var(--text);
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background: var(--bg-navy);
-}
-
-/* ---- Background image + overlay via pseudo-elements (no extra HTML) ---- */
-body::before{
-  content: "";
-  position: fixed; inset: 0;
-  background: url('assets/background.jpg') center/cover no-repeat fixed;
-  filter: brightness(0.45) saturate(0.9);
-  z-index: -2;
-}
-body::after{
-  content: "";
-  position: fixed; inset: 0;
-  background: linear-gradient(180deg, rgba(10,23,48,0.75), rgba(10,23,48,0.85));
-  z-index: -1;
+  /* Layered background: gradient on top, image underneath */
+  background:
+    linear-gradient(180deg, rgba(10,23,48,0.75), rgba(10,23,48,0.85)),
+    url('assets/background.jpg') center / cover no-repeat fixed;
+  /* If your file is .jpeg, change to url('assets/background.jpeg') */
+  background-color: var(--bg-navy); /* solid fallback */
 }
 
 /* ========== Top Nav ========== */
