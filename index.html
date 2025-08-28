@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <!-- helpers -->
+  <!-- Inline helpers + sticky footer fix -->
   <style>
     .visually-hidden {
       position: absolute !important;
@@ -18,41 +18,24 @@
       height: 1px; width: 1px;
       overflow: hidden; white-space: nowrap;
     }
+
     /* Neat paragraph spacing inside sections */
     .section p + p { margin-top: 0.8rem; }
-    /* Keep content clear of the fixed footer */
-    main { padding-bottom: 72px; }
-    /* Footer: full-width, centered, at the very bottom of the viewport */
+
+    /* Sticky (non-overlapping) footer layout */
+    html, body { height: 100%; }
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; } /* grows to keep footer at bottom when content is short */
+
+    /* Footer: normal flow, full-width, centered */
     .site-footer--fixed {
-      position: fixed;
-      left: 0; right: 0; bottom: 0;
+      position: static !important;
+      width: 100%;
       text-align: center;
-      padding: 12px 0;
+      padding: 16px 0;
       border-top: 1px solid var(--border);
       background: transparent;
-      z-index: 100;
-    }
-    /* Optional: style for education list */
-    .education-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
-    }
-    .education-list li {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-    }
-    .education-list strong {
-      display: block;
-      font-weight: 600;
-    }
-    .education-list span {
-      color: var(--muted);
-      font-size: 0.95rem;
+      margin-top: auto; /* pushes footer to bottom when page is short */
     }
   </style>
 </head>
@@ -112,7 +95,6 @@
         </p>
       </article>
 
-      <!-- New Education Section -->
       <article class="card section">
         <h2 class="section-title">Education</h2>
         <ul class="education-list">
