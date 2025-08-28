@@ -1,8 +1,9 @@
 /* ========== Theme ========== */
 :root {
-  --panel-navy: #0A1730;          /* single navy */
-  --card: rgba(10, 23, 48, 1); /* 90% opaque, same base */
-  --card-strong: rgba(10, 23, 48, 1); /* slightly stronger but same hue */
+  --bg-fallback: #0A1730;          /* fallback while image loads */
+  --panel-navy: #0A1730;           /* legacy var, safe to keep */
+  --card: rgba(10, 23, 48, 1);
+  --card-strong: rgba(10, 23, 48, 1);
   --text: #ffffff;
   --muted: #cbd5e1;
   --accent: #7aa2ff;
@@ -13,6 +14,7 @@
 
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
+
 body{
   color: var(--text);
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -32,14 +34,13 @@ body{
   border-bottom: 1px solid var(--border);
 }
 
-
 .tabs{
   display: flex;
   gap: 8px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 14px 20px;
-  justify-content: center;  /* <— add this line */
+  justify-content: center;  /* center the tabs */
 }
 
 .tab{
@@ -82,6 +83,7 @@ body{
   display: flex; flex-direction: column; align-items: center; text-align: center;
   padding: 22px;
 }
+
 .avatar{
   width: 160px; height: 160px; object-fit: cover;
   border-radius: 50%;
@@ -89,12 +91,14 @@ body{
   box-shadow: var(--shadow);
   margin-bottom: 14px;
 }
+
 .name{ font-size: 1.8rem; margin: 6px 0 2px; font-weight: 800; letter-spacing: .2px; }
 .tagline{ margin: 0 0 14px; color: var(--muted); font-weight: 400; }
 
 .contact{
   display: grid; gap: 10px; width: 100%;
 }
+
 .contact-item{
   color: var(--text);
   text-decoration: none;
@@ -104,23 +108,30 @@ body{
   background: rgba(255,255,255,0.06);
   transition: background .15s ease, border-color .15s ease, transform .06s ease;
 }
-.contact-item:hover{ background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); transform: translateY(-1px); }
 
-/* Content */
+.contact-item:hover{
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+
+/* ========== Content ========== */
 .content{ display: grid; gap: 22px; }
 
 /* Cards / Sections */
 .card {
-  background: rgba(20,24,42,.9); /* deep navy like Education */
+  background: rgba(20,24,42,.9); /* deep navy like Education base */
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
+
 .profile {
   background: rgba(20,24,42,.9);
 }
 
 .section{ padding: 22px; }
+
 .section-title{
   margin: 0 0 12px;
   font-size: 1.6rem;
@@ -129,18 +140,30 @@ body{
   border-bottom: 1px solid rgba(255,255,255,0.18);
   padding-bottom: 8px;
 }
-.section p{ line-height: 1.7; color: #e6edf7; margin: 0; }
+
+.section p{
+  line-height: 1.7; color: #e6edf7; margin: 0;
+}
+
+/* Education list items: use lighter button style, with tighter symmetric spacing */
+.education { list-style: none; padding: 0; margin: 0; }
 
 .education li{
   background: rgba(255,255,255,0.06); /* same as your email/skills/tabs */
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 14px;
+  padding: 8px 14px;                  /* balanced vertical spacing */
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;            /* centers content vertically */
 }
 
+/* Optional fine-tuning for text inside education items */
+.education .degree { font-weight: 600; }
+.education .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
 
-/* Footer: full-width, centered, sits after all content */
+/* ========== Footer (in normal flow) ========== */
 .site-footer--fixed {
   position: static;         /* no overlap */
   text-align: center;
@@ -156,6 +179,7 @@ body{
   .tabs{ justify-content: center; flex-wrap: wrap; }
   .avatar{ width: 136px; height: 136px; }
 }
+
 @media (prefers-reduced-motion: no-preference){
   .tab, .contact-item{ will-change: transform; }
 }
