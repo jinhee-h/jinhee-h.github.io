@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <!-- minimal helper styles for accessibility text swap (keeps your CSS intact) -->
+  <!-- helpers -->
   <style>
     .visually-hidden {
       position: absolute !important;
@@ -17,6 +17,21 @@
       clip-path: inset(50%);
       height: 1px; width: 1px;
       overflow: hidden; white-space: nowrap;
+    }
+    /* Neat paragraph spacing inside sections */
+    .section p + p { margin-top: 0.8rem; }
+    /* Keep content clear of the fixed footer */
+    main { padding-bottom: 72px; }
+    /* Footer: full-width, centered, at the very bottom of the viewport */
+    .site-footer--fixed {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      text-align: center;
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+      /* transparent so your raw background photo is untouched */
+      background: transparent;
+      z-index: 100;
     }
   </style>
 </head>
@@ -41,7 +56,6 @@
         <p class="tagline">Mechanical Engineer</p>
 
         <div class="contact">
-          <!-- UPDATE THESE VALUES -->
           <a href="mailto:han.jinh@northeastern.edu"
              class="contact-item copy-btn"
              data-copy="han.jinh@northeastern.edu"
@@ -55,7 +69,6 @@
              data-label="LinkedIn">
             linkedin.com/in/hanjinhee
           </a>
-
         </div>
       </div>
     </aside>
@@ -65,21 +78,23 @@
       <article class="card section">
         <h2 class="section-title">About</h2>
         <p>
-          I'm currently a Mechanical Engineering student at Northeastern University, Boston MA. 
-          I'm strongly interested in robotics, and I hope to gain real-world experience working with robotics/systems,
-          and I also plan to pursue an MSME in robotics or mechatronics.
+          I'm currently a Mechanical Engineering student at Northeastern University in Boston, MA.
+          I'm strongly interested in robotics, and I hope to gain real-world experience working with
+          robotics and systems. I also plan to pursue an MSME focused on robotics or mechatronics.
         </p>
-        My interest in robotics/systems comes from my love for sci-fi. 
-          Tony Stark/Iron Man was a big reason why I chose ME as my career, and I want to be able to bring sci-fi 
-        tech to reality
-          in my freetime, such as Jetpacks, Dum-E robots, Ligthsabers, and Exoskeletons. 
-        Influencers like the HackSmith and JLaserVideo inspire me
-          as a mechanical engineer to be able to make similar gadgets in my freetime. 
-        In order to make these gadgets, I thought that having a systems understanding
-          of engineering would be the most helpful, combining mechanical, electrical, and software engineering.
+        <p>
+          My interest in robotics and systems comes from my love for sci-fi. Tony Stark/Iron Man was a big reason
+          I chose ME, and I want to bring sci-fi tech to reality in my free time—things like jetpacks, Dum-E robots,
+          lightsabers, and exoskeletons. Creators like Hacksmith and JLaservideo inspire me to build similar gadgets.
+          To make that possible, I’m developing a strong systems understanding across mechanical, electrical,
+          and software engineering.
+        </p>
       </article>
+    </section>
+  </main>
 
-  <footer class="site-footer">
+  <!-- Footer: centered at bottom of entire screen -->
+  <footer class="site-footer site-footer--fixed" role="contentinfo">
     <p>© <span id="year"></span> GitHub</p>
   </footer>
 
@@ -94,7 +109,6 @@
     const announce = (msg) => {
       const sr = document.getElementById('sr-announce');
       sr.textContent = '';
-      // small delay ensures screen readers pick up repeated messages
       setTimeout(() => { sr.textContent = msg; }, 30);
     };
 
