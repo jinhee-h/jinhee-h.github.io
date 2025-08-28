@@ -84,8 +84,7 @@ body{
   width: 160px;
   height: 160px;
   object-fit: cover;
-  object-position: 55% 35%; /* 55% across (right), 50% down (center) */
-  transform: scale(0.75);   /* optional zoom-out */
+  object-position: 55% 50%;  /* move slightly right, vertically centered */
   border-radius: 50%;
   border: 3px solid rgba(255,255,255,0.2);
   box-shadow: var(--shadow);
