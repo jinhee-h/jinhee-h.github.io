@@ -8,6 +8,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- minimal helper styles for accessibility text swap (keeps your CSS intact) -->
+  <style>
+    .visually-hidden {
+      position: absolute !important;
+      clip: rect(1px, 1px, 1px, 1px);
+      clip-path: inset(50%);
+      height: 1px; width: 1px;
+      overflow: hidden; white-space: nowrap;
+    }
+  </style>
 </head>
 <body>
   <!-- Top Nav -->
@@ -29,8 +40,21 @@
         <p class="tagline">Mechanical Engineer</p>
 
         <div class="contact">
-          <a href="han.jinh@northeastern.edu" class="contact-item">han.jinh@northeastern.edu</a>
-          <a href="https://www.linkedin.com/in/hanjinhee" target="_blank" rel="noopener" class="contact-item">linkedin.com/in/hanjinhee</a>
+          <!-- UPDATE THESE VALUES -->
+          <a href="mailto:han.jinh@northeastern.edu"
+             class="contact-item copy-btn"
+             data-copy="han.jinh@northeastern.edu"
+             data-label="Email">
+            han.jinh@northeastern.edu
+          </a>
+
+          <a href="https://www.linkedin.com/in/hanjinhee"
+             class="contact-item copy-btn"
+             data-copy="https://www.linkedin.com/in/hanjinhee"
+             data-label="LinkedIn">
+            linkedin.com/in/hanjinhee
+          </a>
+
         </div>
       </div>
     </aside>
@@ -40,8 +64,9 @@
       <article class="card section">
         <h2 class="section-title">About</h2>
         <p>
-          I’m a 21-year-old mechanical engineering student attending Northeastern University.
-          Interests: 
+          I’m a 21-year-old developer focused on building clean, usable software.
+          Interests: full-stack web, systems, and ML. I like shipping projects that
+          solve real problems with minimal fuss.
         </p>
       </article>
 
@@ -61,8 +86,53 @@
     <p>© <span id="year"></span> GitHub</p>
   </footer>
 
+  <!-- screen-reader announcement node -->
+  <div id="sr-announce" class="visually-hidden" aria-live="polite"></div>
+
   <script>
+    // footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // copy-to-clipboard for Email + LinkedIn buttons
+    const announce = (msg) => {
+      const sr = document.getElementById('sr-announce');
+      sr.textContent = '';
+      // small delay ensures screen readers pick up repeated messages
+      setTimeout(() => { sr.textContent = msg; }, 30);
+    };
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault(); // don’t navigate; copy instead
+        const toCopy = btn.getAttribute('data-copy') || btn.textContent.trim();
+        const originalHTML = btn.innerHTML;
+
+        try {
+          await navigator.clipboard.writeText(toCopy);
+          btn.innerHTML = 'Copied!';
+          announce('Copied to clipboard');
+          setTimeout(() => { btn.innerHTML = originalHTML; }, 1200);
+        } catch (err) {
+          // Fallback if clipboard API fails
+          const ta = document.createElement('textarea');
+          ta.value = toCopy;
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand('copy');
+            btn.innerHTML = 'Copied!';
+            announce('Copied to clipboard');
+            setTimeout(() => { btn.innerHTML = originalHTML; }, 1200);
+          } catch (e2) {
+            btn.innerHTML = 'Copy failed';
+            announce('Copy failed');
+            setTimeout(() => { btn.innerHTML = originalHTML; }, 1500);
+          } finally {
+            document.body.removeChild(ta);
+          }
+        }
+      });
+    });
   </script>
 </body>
 </html>
