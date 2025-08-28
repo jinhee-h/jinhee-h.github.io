@@ -44,13 +44,16 @@
       margin: 0;
       padding: 0;
     }
-    .education li {
-      background: rgba(20,24,42,.9);
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 12px;
-      box-shadow: var(--shadow);
+    .education li{
+  background: rgba(255,255,255,0.06); /* lighter “button” panel */
+  border: 1px solid var(--border);    /* solid border to match buttons */
+  border-radius: 12px;
+  padding: 8px 14px;                  /* tighter, symmetric spacing */
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
     }
     .education .degree { font-weight: 600; }
     .education .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
