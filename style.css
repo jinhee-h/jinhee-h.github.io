@@ -80,8 +80,12 @@ body{
   display: flex; flex-direction: column; align-items: center; text-align: center;
   padding: 22px;
 }
-.avatar{
-  width: 160px; height: 160px; object-fit: cover;
+.avatar {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  object-position: center 20%;  /* shift up/down, zoom effect */
+  transform: scale(0.9);        /* zoom out slightly */
   border-radius: 50%;
   border: 3px solid rgba(255,255,255,0.2);
   box-shadow: var(--shadow);
