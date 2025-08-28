@@ -1,69 +1,75 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jinhee Han – Home</title>
-  <meta name="description" content="Engineering Portfolio of Jinhee Han." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jinhee | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- If you’d rather not load Google Fonts, remove this and it will fall back to system fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Top navigation -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <nav class="nav centered">
-        <a class="tab active" href="index.html">Home</a>
-        <a class="tab" href="experiences.html">Experiences</a>
-        <a class="tab" href="projects.html">Projects</a>
-      </nav>
-    </div>
-  </header>
-  <div class="tab-spacer"></div>
+  <div class="background"></div>
+  <div class="overlay"></div>
 
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-inner">
-        <img class="avatar" src="assets/profile.jpg" alt="Portrait of Jinhee Han" />
-        <h1 class="name">Jinhee Han</h1>
-        <p class="role">Mechanical Engineer</p>
+  <!-- Top Nav -->
+  <header class="site-header">
+    <nav class="tabs" aria-label="Primary">
+      <a class="tab active" href="index.html" aria-current="page">Home</a>
+      <a class="tab" href="experiences.html">Experiences</a>
+      <a class="tab" href="projects.html">Projects</a>
+    </nav>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar" aria-label="Profile">
+      <div class="card profile">
+        <img class="avatar" src="assets/profile.jpg" alt="Portrait of Jinhee" />
+        <h1 class="name">Jinhee</h1>
+        <p class="tagline">CS Student • Boston</p>
 
         <div class="contact">
-          <h2>Contact</h2>
-          <ul>
-            <li><a href="mailto:you@example.com">you@example.com</a></li>
-            <li><a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
+          <a href="mailto:your.email@example.com" class="contact-item">your.email@example.com</a>
+          <a href="https://github.com/jinhee-h" target="_blank" rel="noopener" class="contact-item">github.com/jinhee-h</a>
+          <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener" class="contact-item">linkedin.com/in/your-handle</a>
         </div>
       </div>
     </aside>
 
-    <!-- Main content -->
-    <main class="main">
-      <section class="card">
-        <h2>About</h2>
-        <p class="text-muted">
-          Boston-based mechanical engineering student focused on practical design and implementation.
-          Interested in prototyping, manufacturing, and crossover projects with software and data.
+    <!-- Right Content -->
+    <section class="content">
+      <article class="card section">
+        <h2 class="section-title">About</h2>
+        <p>
+          I’m a 21-year-old developer focused on building clean, usable software.
+          Interests: full-stack web, systems, and ML. I like shipping projects that
+          solve real problems with minimal fuss.
         </p>
-      </section>
+      </article>
 
-      <section class="card">
-        <h2>Skills</h2>
-        <ul class="list two-col">
-          <li>CAD: SolidWorks, Fusion 360</li>
-          <li>Prototyping: 3D printing, machining basics</li>
-          <li>Programming: Python, Arduino</li>
-          <li>Analysis: MATLAB, basic FEA</li>
-          <li>Docs & BOMs</li>
-          <li>Testing & Fixtures</li>
+      <article class="card section">
+        <h2 class="section-title">Skills</h2>
+        <ul class="skills">
+          <li>Languages: Python, TypeScript/JavaScript, C/C++</li>
+          <li>Web: React, Node.js/Express, REST, Next.js</li>
+          <li>Data/ML: NumPy, Pandas, scikit-learn</li>
+          <li>Tools: Git, Docker, Linux</li>
         </ul>
-      </section>
-    </main>
-  </div>
+      </article>
+    </section>
+  </main>
 
   <footer class="site-footer">
-    <div class="footer-credits">© 2025 Made using Github</div>
+    <p>© <span id="year"></span> Jinhee</p>
   </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
