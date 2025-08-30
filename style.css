@@ -35,17 +35,16 @@ body{
   border-bottom: 1px solid var(--border);
 }
 
-/* New inner wrapper */
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* pushes Portfolio left, tabs right */
+  justify-content: space-between;  /* brand left, tabs right */
   max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 8px 20px;               /* slimmer top bar */
+  height: 56px;                    /* consistent height */
 }
 
-/* Portfolio text */
 .brand {
   font-weight: 700;
   color: var(--text);
@@ -53,13 +52,12 @@ body{
   letter-spacing: .3px;
 }
 
+/* Nav group sits on the right */
 .tabs{
   display: flex;
   gap: 8px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 20px;
-  justify-content: center;
+  margin: 0;                       /* remove centering */
+  padding: 0;                      /* header-inner already has padding */
 }
 
 .tab{
@@ -83,6 +81,7 @@ body{
   border-color: rgba(255,255,255,0.28);
   font-weight: 600;
 }
+
 
 /* ========== Layout ========== */
 .container{
