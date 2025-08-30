@@ -27,10 +27,30 @@ body{
 }
 
 /* ========== Top Nav ========== */
-.site-header{
-  position: sticky; top: 0; z-index: 10;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   background: rgba(15,18,32,0.95); /* unified darker navy */
   border-bottom: 1px solid var(--border);
+}
+
+/* New inner wrapper */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes Portfolio left, tabs right */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+}
+
+/* Portfolio text */
+.brand {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.2rem;
+  letter-spacing: .3px;
 }
 
 .tabs{
