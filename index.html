@@ -38,47 +38,61 @@
       margin-top: auto;
     }
 
-    /* Old-style education list (boxed entries) */
-    .education {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+    /* Education list (lighter button-style boxes) */
+    .education { list-style: none; margin: 0; padding: 0; }
     .education li{
-  background: rgba(255,255,255,0.06); /* lighter “button” panel */
-  border: 1px solid var(--border);    /* solid border to match buttons */
-  border-radius: 12px;
-  padding: 8px 14px;                  /* tighter, symmetric spacing */
-  margin-bottom: 12px;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .education .degree { font-weight: 600; }
     .education .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
+
+    /* Skills chips */
+    .skills { 
+      list-style: none; 
+      padding: 0; 
+      margin: 0; 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 10px; 
+    }
+    .skills li{
+      background: rgba(255,255,255,0.08);   /* same family as your buttons */
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px 12px;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
   <!-- Top Nav -->
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">Portfolio</div>
-    <nav class="tabs" aria-label="Primary">
-      <a class="tab active" href="index.html" aria-current="page">Home</a>
-      <a class="tab" href="skills.html">Skills</a>
-      <a class="tab" href="experiences.html">Experiences</a>
-      <a class="tab" href="projects.html">Projects</a>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">Portfolio</div>
+      <nav class="tabs" aria-label="Primary">
+        <a class="tab active" href="index.html" aria-current="page">Home</a>
+        <!-- removed Skills tab -->
+        <a class="tab" href="experiences.html">Experiences</a>
+        <a class="tab" href="projects.html">Projects</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- Main Layout -->
   <main class="container">
     <!-- Left Sidebar -->
     <aside class="sidebar" aria-label="Profile">
       <div class="card profile">
-      <div class="avatar-wrapper" role="img" aria-label="Portrait of Jinhee"></div>
+        <div class="avatar-wrapper" role="img" aria-label="Portrait of Jinhee"></div>
         <h1 class="name">Jinhee Han</h1>
         <p class="tagline">Mechanical Engineer</p>
 
@@ -104,28 +118,42 @@
     <section class="content">
       <article class="card section">
         <h2 class="section-title">About</h2>
- <p>
-  I am currently a Mechanical Engineering undergraduate student at Northeastern University in Boston, MA.  
-  I am strongly interested in robotics, and I hope to gain more real-world experience working with  
-  robotics and systems. I also plan to pursue an MSME focused on robotics or mechatronics.  
-</p>
-
-<p>
-  My interest in robotics and systems engineering comes from my love of sci-fi. Tony Stark (Iron Man) was a big  
-  reason I chose Mechanical Engineering back in high school, and this passion has developed into a  
-  desire to recreate sci-fi technology in real life. Creators like the Hacksmith and JLaservideo inspire me through  
-  their recreations of jetpacks, lightsabers, holograms, wall climbers, and more. To make this possible, I am building  
-  a strong understanding of systems engineering, combining mechanical, electrical, and software engineering.  
-</p>
+        <p>
+          I am currently a Mechanical Engineering undergraduate student at Northeastern University in Boston, MA.
+          I am strongly interested in robotics, and I hope to gain more real-world experience working with 
+          robotics and systems. I also plan to pursue an MSME focused on robotics or mechatronics.
+        </p>
+        <p>
+          My interest in robotics and systems engineering comes from my love of sci-fi. Tony Stark (Iron Man) was a big
+          reason I chose Mechanical Engineering back in high school, and this passion has developed into a
+          desire to recreate sci-fi technology in real life. Creators like the Hacksmith and JLaservideo inspire me through
+          their recreations of jetpacks, lightsabers, holograms, wall climbers, and more. To make this possible, I am building
+          a strong understanding of systems engineering, combining mechanical, electrical, and software engineering.
+        </p>
       </article>
 
-      <!-- Education Section (old style restored) -->
+      <!-- New Skills Section -->
+      <article class="card section">
+        <h2 class="section-title">Skills</h2>
+        <ul class="skills">
+          <li>CAD: SolidWorks, Fusion 360</li>
+          <li>Rapid Prototyping: 3D Printing, Laser Cutting</li>
+          <li>Manufacturing: CNC Basics, Shop Safety</li>
+          <li>Analysis: FEA (ANSYS), MATLAB</li>
+          <li>Electronics: Arduino, Basic Circuits</li>
+          <li>Programming: Python (data/controls)</li>
+          <li>Mechanisms & Linkages</li>
+          <li>DFM/DFA</li>
+        </ul>
+      </article>
+
+      <!-- Education Section -->
       <article class="card section">
         <h2 class="section-title">Education</h2>
         <ul class="education">
           <li>
             <div class="degree">Northeastern University</div>
-            <div class="meta">B.S. in Mechanical Engineering - Expected 2026</div>
+            <div class="meta">B.S. in Mechanical Engineering — Expected 2026</div>
           </li>
         </ul>
       </article>
