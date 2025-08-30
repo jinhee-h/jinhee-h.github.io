@@ -47,7 +47,7 @@ body{
 
 
 .brand {
-  font-weight: 700;
+  font-weight: 400;   /* normal weight instead of bold */
   color: var(--text);
   font-size: 1.2rem;
   letter-spacing: .3px;
