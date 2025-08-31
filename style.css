@@ -219,9 +219,9 @@ body{
   .container { grid-template-columns: 1fr; }
   .sidebar .profile { position: static; }
   .tabs { flex-wrap: wrap; }
-  .avatar-wrapper,
-  .avatar { width: 136px; height: 136px; }
+  .avatar { width: 136px; height: 136px; } /* only .avatar now */
 }
+
 @media (prefers-reduced-motion: no-preference) {
   .tab, .contact-item { will-change: transform; }
 }
