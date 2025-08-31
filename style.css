@@ -183,6 +183,18 @@ body{
   letter-spacing: .2px;
 }
 
+/* Outlined subsections inside About */
+.subsection + .subsection {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.12); /* divider line */
+  border: 1px solid rgba(255,255,255,0.12);      /* outline box */
+  border-radius: 12px;
+  padding: 14px;
+  background: transparent; /* keep raw background of parent card */
+}
+
+
 /* Keep skills chips consistent in this layout too */
 .skills {
   list-style: none;
