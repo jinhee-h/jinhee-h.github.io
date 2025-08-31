@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jinhee | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  <!-- helpers + footer fix -->
   <style>
     .visually-hidden {
       position: absolute !important;
@@ -18,59 +14,7 @@
       height: 1px; width: 1px;
       overflow: hidden; white-space: nowrap;
     }
-
-    /* Neat paragraph spacing inside sections */
-    .section p + p { margin-top: 0.8rem; }
-
-    /* Sticky (non-overlapping) footer layout */
-    html, body { height: 100%; }
-    body { min-height: 100vh; display: flex; flex-direction: column; }
-    main { flex: 1; }
-
-    /* Footer */
-    .site-footer--fixed {
-      position: static !important;
-      width: 100%;
-      text-align: center;
-      padding: 16px 0;
-      border-top: 1px solid var(--border);
-      background: transparent;
-      margin-top: auto;
-    }
-
-    /* Education list (lighter button-style boxes) */
-    .education { list-style: none; margin: 0; padding: 0; }
-    .education li{
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 8px 14px;
-      margin-bottom: 12px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .education .degree { font-weight: 600; }
-    .education .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
-
-    /* Skills chips */
-    .skills { 
-      list-style: none; 
-      padding: 0; 
-      margin: 0; 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 10px; 
-    }
-    .skills li{
-      background: rgba(255,255,255,0.08);   /* same family as your buttons */
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 8px 12px;
-      box-shadow: var(--shadow);
-      white-space: nowrap;
-    }
+    .section p + p { margin-top: .8rem; }
   </style>
 </head>
 <body>
@@ -79,8 +23,7 @@
     <div class="header-inner">
       <div class="brand">Portfolio</div>
       <nav class="tabs" aria-label="Primary">
-        <a class="tab active" href="index.html" aria-current="page">Home</a>
-        <!-- removed Skills tab -->
+        <a class="tab active" href="index.html">Home</a>
         <a class="tab" href="experiences.html">Experiences</a>
         <a class="tab" href="projects.html">Projects</a>
       </nav>
@@ -92,35 +35,27 @@
     <!-- Left Sidebar -->
     <aside class="sidebar" aria-label="Profile">
       <div class="card profile">
-       <img class="avatar" src="assets/profile.jpg" alt="Portrait of Jinhee" />
+        <img class="avatar" src="assets/profile.jpg" alt="Portrait of Jinhee" />
         <h1 class="name">Jinhee Han</h1>
         <p class="tagline">Mechanical Engineer</p>
-        <p class="tagline">Boston, MA</p>
 
         <div class="contact">
           <a href="mailto:han.jinh@northeastern.edu"
              class="contact-item copy-btn"
-             data-copy="han.jinh@northeastern.edu"
-             data-label="Email">
-            han.jinh@northeastern.edu
-          </a>
+             data-copy="han.jinh@northeastern.edu">han.jinh@northeastern.edu</a>
 
           <a href="https://www.linkedin.com/in/hanjinhee"
              class="contact-item copy-btn"
-             data-copy="https://www.linkedin.com/in/hanjinhee"
-             data-label="LinkedIn">
-            linkedin.com/in/hanjinhee
-          </a>
+             data-copy="https://www.linkedin.com/in/hanjinhee">linkedin.com/in/hanjinhee</a>
         </div>
       </div>
     </aside>
 
-<!-- Right Content -->
-<section class="content">
-  <article class="card section">
-    <!-- About subsection -->
-    <h3 class="subsection-title">About</h3>
-<p>
+    <!-- Right Content -->
+    <section class="content">
+      <article class="card section">
+        <h2 class="section-title">About</h2>
+      <p>
   Welcome to my portfolio!
   I’m a third-year Mechanical Engineering student at Northeastern University with a strong interest in robotics. 
   I’m eager to gain real-world experience working with robotics and systems.
@@ -132,85 +67,47 @@
   </a>.
 </p>
 
-    <hr class="subdivider" />
+        <hr class="subdivider" />
 
-    <!-- Skills subsection -->
-    <h3 class="subsection-title">Skills</h3>
-    <ul class="skills">
-      <li>SolidWorks</li>
-      <li>Fusion 360</li>
-      <li>3D Printing</li>
-      <li>Laser Cutting</li>
-      <li>FEA (ANSYS)</li>
-      <li>MATLAB</li>
-      <li>Arduino</li>
-      <li>Python (basics)</li>
-    </ul>
+        <h3 class="subsection-title">Skills</h3>
+        <ul class="skills">
+          <li>SolidWorks</li>
+          <li>Fusion 360</li>
+          <li>3D Printing</li>
+          <li>Laser Cutting</li>
+          <li>FEA (ANSYS)</li>
+          <li>MATLAB</li>
+          <li>Arduino</li>
+          <li>Python (basics)</li>
+        </ul>
 
-    <hr class="subdivider" />
+        <hr class="subdivider" />
 
-    <!-- Education subsection -->
-    <h3 class="subsection-title">Education</h3>
-    <ul class="education">
-      <li>
-        <div class="degree">Northeastern University</div>
-        <div class="meta">B.S. in Mechanical Engineering — Expected 2026</div>
-      </li>
-    </ul>
-  </article>
-</section>
-
-
+        <h3 class="subsection-title">Education</h3>
+        <ul class="education">
+          <li>
+            <div class="degree">Northeastern University</div>
+            <div class="meta">B.S. in Mechanical Engineering — Expected 2026</div>
+          </li>
+        </ul>
+      </article>
+    </section>
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer site-footer--fixed" role="contentinfo">
+  <footer class="site-footer site-footer--fixed">
     <p>© <span id="year"></span> GitHub</p>
   </footer>
 
-  <!-- screen-reader announcement node -->
-  <div id="sr-announce" class="visually-hidden" aria-live="polite"></div>
-
   <script>
-    // footer year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // copy-to-clipboard for Email + LinkedIn buttons
-    const announce = (msg) => {
-      const sr = document.getElementById('sr-announce');
-      sr.textContent = '';
-      setTimeout(() => { sr.textContent = msg; }, 30);
-    };
-
     document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', async (e) => {
+      btn.addEventListener('click', async e => {
         e.preventDefault();
-        const toCopy = btn.getAttribute('data-copy') || btn.textContent.trim();
-        const originalHTML = btn.innerHTML;
-
-        try {
-          await navigator.clipboard.writeText(toCopy);
-          btn.innerHTML = 'Copied!';
-          announce('Copied to clipboard');
-          setTimeout(() => { btn.innerHTML = originalHTML; }, 1200);
-        } catch (err) {
-          const ta = document.createElement('textarea');
-          ta.value = toCopy;
-          document.body.appendChild(ta);
-          ta.select();
-          try {
-            document.execCommand('copy');
-            btn.innerHTML = 'Copied!';
-            announce('Copied to clipboard');
-            setTimeout(() => { btn.innerHTML = originalHTML; }, 1200);
-          } catch (e2) {
-            btn.innerHTML = 'Copy failed';
-            announce('Copy failed');
-            setTimeout(() => { btn.innerHTML = originalHTML; }, 1500);
-          } finally {
-            document.body.removeChild(ta);
-          }
-        }
+        const toCopy = btn.getAttribute('data-copy');
+        await navigator.clipboard.writeText(toCopy);
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = toCopy; }, 1200);
       });
     });
   </script>
