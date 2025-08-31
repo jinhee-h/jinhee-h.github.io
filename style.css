@@ -170,6 +170,14 @@ body{
 .degree { font-weight: 600; }
 .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
 
+/* Optimize readability for subsection body text */
+.section p {
+  font-size: 0.95rem;      /* slightly smaller */
+  line-height: 1.8;        /* slightly larger spacing */
+  color: #e6edf7;
+  margin: 0 0 0.8rem;      /* consistent bottom spacing */
+}
+
 /* ========== Footer ========== */
 .site-footer--fixed {
   position: static;
