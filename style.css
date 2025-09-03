@@ -193,42 +193,102 @@ body {
   white-space: nowrap;
 }
 
-/* Grouped Skills layout */
+/* ===== Refined Grouped Skills layout ===== */
 .skills-groups {
   display: grid;
-  gap: 16px; /* vertical space between rows */
+  gap: 18px; /* vertical space between rows */
 }
 
 .skills-row {
   display: grid;
   grid-template-columns: 220px 1fr; /* title left, box right */
-  align-items: start;
-  gap: 14px;
+  align-items: center; /* align on the center line */
+  gap: 16px;
+  position: relative;
 }
 
+/* Left-side label */
 .skills-title {
   font-weight: 700;
   font-size: 1.05rem;
   line-height: 1.3;
-  color: var(--text);
+  color: var(--muted);
+  text-align: right;
+  position: relative;
+  padding: 10px 0;
 }
 
+/* Short connector from title towards the box */
+.skills-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  transform: translateY(-50%);
+  width: 16px;           /* half the gap; pairs with the box stub */
+  height: 1px;
+  background: rgba(255,255,255,0.18);
+}
+
+/* Outer box with ONLY an outline (transparent interior) */
 .skills-box {
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px;
-  background: transparent; /* no fill */
+  border-radius: 14px;
+  padding: 20px 16px 14px; /* extra top padding for title pill */
+  background: transparent;
+  position: relative;
 }
 
+/* Matching connector stub from box back to the title */
+.skills-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  transform: translateY(-50%);
+  width: 16px;           /* matches title stub to visually "meet" */
+  height: 1px;
+  background: rgba(255,255,255,0.18);
+}
+
+/* Centered title pill INSIDE the box */
+.skills-box-title {
+  position: absolute;
+  top: -12px;                    /* sits over the border */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--navy-deep);  /* blends with card, creates a cutout effect */
+  border: 1px solid var(--border);
+  border-radius: 999px;          /* pill shape */
+  white-space: nowrap;
+  box-shadow: var(--shadow);
+}
+
+/* Chips inside the box */
 .skills-box .skills {
   margin: 0;
 }
 
-/* Responsive: stack title above box */
+/* Responsive: stack title above box and hide connector */
 @media (max-width: 720px) {
   .skills-row {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
+    align-items: start;
+  }
+  .skills-title {
+    text-align: left;
+    padding: 0;
+    display: none; /* title inside the box is enough on mobile */
+  }
+  .skills-title::after,
+  .skills-box::before { display: none; }
+  .skills-box {
+    padding-top: 24px; /* slightly reduced since less visual clutter */
   }
 }
 
