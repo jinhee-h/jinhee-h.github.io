@@ -263,3 +263,82 @@ body {
 .skills-groups {
   gap: 24px;          /* was 16px */
 }
+
+/* ===== Grid of 4 hover-reveal skill cards ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Card shell */
+.skills-card {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: transparent;
+  padding: 28px 16px 16px; /* extra top padding for the title pill */
+  min-height: 140px;
+  transition: background .2s ease, border-color .2s ease, transform .06s ease;
+}
+.skills-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-1px);
+}
+
+/* Centered title pill */
+.skills-card-title {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--navy-deep);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: var(--shadow);
+}
+
+/* Hide the list until hover/focus */
+.skills-card .skills {
+  margin-top: 12px;      /* space under the title */
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(4px);
+  transition: opacity .2s ease, max-height .3s ease, transform .2s ease;
+  pointer-events: none;
+}
+
+/* Reveal on hover or keyboard focus */
+.skills-card:hover .skills,
+.skills-card:focus-within .skills {
+  opacity: 1;
+  max-height: 400px;     /* big enough for the chips */
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Responsive: 2-up then 1-up, and always expanded on touch */
+@media (max-width: 1100px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+
+/* Touch devices (no hover): show lists by default */
+@media (hover: none) {
+  .skills-card .skills {
+    opacity: 1;
+    max-height: none;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
