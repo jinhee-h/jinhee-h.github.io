@@ -39,29 +39,26 @@
         <h1 class="name">Jinhee Han</h1>
         <p class="tagline">Mechanical Engineer</p>
 
-        
-      <div class="contact">
-  <!-- Email (copy to clipboard) -->
-  <a href="#"
-     class="contact-item copy-btn"
-     data-copy="han.jinh@northeastern.edu"
-     aria-label="Copy Email">
-    <img src="assets/email.svg" alt="Email" class="icon">
-    <span>Email</span>
-  </a>
+        <div class="contact">
+          <!-- Email button -->
+          <a href="#"
+             class="contact-item copy-btn"
+             data-copy="han.jinh@northeastern.edu"
+             data-label="Email"
+             aria-label="Copy Email">
+            <img src="assets/email.svg" alt="Email" class="icon">
+            <span class="label">Email</span>
+          </a>
 
-  <!-- LinkedIn (direct link) -->
-  <a href="https://www.linkedin.com/in/hanjinhee"
-     class="contact-item"
-     target="_blank"
-     aria-label="Jinhee's LinkedIn">
-    <img src="assets/linkedin.svg" alt="LinkedIn" class="icon">
-    <span>LinkedIn</span>
-  </a>
-</div>
-
-
-        
+          <!-- LinkedIn button -->
+          <a href="https://www.linkedin.com/in/hanjinhee"
+             class="contact-item"
+             target="_blank"
+             aria-label="Jinhee's LinkedIn">
+            <img src="assets/linkedin.svg" alt="LinkedIn" class="icon">
+            <span class="label">LinkedIn</span>
+          </a>
+        </div>
       </div>
     </aside>
 
@@ -69,16 +66,16 @@
     <section class="content">
       <article class="card section">
         <h2 class="section-title">About</h2>
-      <p>
-  I’m a third-year Mechanical Engineering student at Northeastern University with a strong interest in robotics. 
-  I’m eager to gain real-world experience working with robotics and systems.
-</p>
-<p>
-  If you’d prefer a condensed PDF version of my portfolio, you can view it 
-  <a href="[insert link here]" target="_blank" style="color: skyblue; text-decoration: none;">
-    here
-  </a>.
-</p>
+        <p>
+          I’m a third-year Mechanical Engineering student at Northeastern University with a strong interest in robotics. 
+          I’m eager to gain real-world experience working with robotics and systems.
+        </p>
+        <p>
+          If you’d prefer a condensed PDF version of my portfolio, you can view it 
+          <a href="[insert link here]" target="_blank" style="color: skyblue; text-decoration: none;">
+            here
+          </a>.
+        </p>
 
         <hr class="subdivider" />
 
@@ -97,12 +94,12 @@
         <hr class="subdivider" />
 
         <h3 class="subsection-title">Education</h3>
-      <ul class="education">
-  <li class="highlight-edu">
-    <div class="degree">Northeastern University</div>
-    <div class="meta">B.S. in Mechanical Engineering — Expected 2026</div>
-  </li>
-</ul>
+        <ul class="education">
+          <li class="highlight-edu">
+            <div class="degree">Northeastern University</div>
+            <div class="meta">B.S. in Mechanical Engineering — Expected 2026</div>
+          </li>
+        </ul>
       </article>
     </section>
   </main>
@@ -114,13 +111,26 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', async e => {
         e.preventDefault();
-        const toCopy = btn.getAttribute('data-copy');
-        await navigator.clipboard.writeText(toCopy);
-        btn.textContent = 'Copied!';
-        setTimeout(() => { btn.textContent = toCopy; }, 1200);
+        const toCopy = btn.dataset.copy;
+        const labelEl = btn.querySelector('.label');
+        const original = btn.dataset.label || 'Email';
+
+        try {
+          await navigator.clipboard.writeText(toCopy);
+          if (labelEl) labelEl.textContent = 'Copied!';
+          setTimeout(() => {
+            if (labelEl) labelEl.textContent = original;
+          }, 1200);
+        } catch (err) {
+          if (labelEl) labelEl.textContent = 'Failed';
+          setTimeout(() => {
+            if (labelEl) labelEl.textContent = original;
+          }, 1200);
+        }
       });
     });
   </script>
