@@ -12,7 +12,7 @@
 
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
-body{
+body {
   color: var(--text);
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   background-color: var(--bg-fallback);
@@ -62,8 +62,16 @@ body{
   background: rgba(255,255,255,0.08);
   transition: transform .06s ease, background .2s ease, border-color .2s ease;
 }
-.tab:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.22); transform: translateY(-1px); }
-.tab.active { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.28); font-weight: 600; }
+.tab:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+.tab.active {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.28);
+  font-weight: 600;
+}
 
 /* ========== Layout ========== */
 .container {
@@ -102,7 +110,7 @@ body{
 .tagline { margin: 0 0 14px; color: var(--muted); }
 
 /* Contact buttons */
-.contact { 
+.contact {
   display: flex;
   flex-direction: column;
   gap: 12px; /* spacing between buttons */
@@ -167,7 +175,7 @@ body{
   font-weight: 600;
 }
 
-/* Skills chips */
+/* Skills chips (used inside boxes) */
 .skills {
   list-style: none;
   margin: 0;
@@ -183,6 +191,45 @@ body{
   padding: 6px 12px;
   box-shadow: var(--shadow);
   white-space: nowrap;
+}
+
+/* Grouped Skills layout */
+.skills-groups {
+  display: grid;
+  gap: 16px; /* vertical space between rows */
+}
+
+.skills-row {
+  display: grid;
+  grid-template-columns: 220px 1fr; /* title left, box right */
+  align-items: start;
+  gap: 14px;
+}
+
+.skills-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.skills-box {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: transparent; /* no fill */
+}
+
+.skills-box .skills {
+  margin: 0;
+}
+
+/* Responsive: stack title above box */
+@media (max-width: 720px) {
+  .skills-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }
 
 /* Education */
@@ -208,8 +255,8 @@ body{
   color: var(--muted);
 }
 
-/* ========== Responsive ========== */
-@media (max-width: 960px){
+/* ========== Responsive (general) ========== */
+@media (max-width: 960px) {
   .container { grid-template-columns: 1fr; }
   .sidebar .profile { position: static; }
   .tabs { flex-wrap: wrap; }
