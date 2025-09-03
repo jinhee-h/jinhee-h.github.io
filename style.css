@@ -111,8 +111,18 @@ body{
   border-radius: 12px;
   background: rgba(255,255,255,0.08);
   transition: background .15s ease, border-color .15s ease, transform .06s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .contact-item:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.22); transform: translateY(-1px); }
+
+/* Contact icons */
+.icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
 
 /* ========== Content ========== */
 .content { display: grid; gap: 22px; }
@@ -179,7 +189,6 @@ body{
   padding: 12px;
   background: rgba(255,255,255,0.08);
   box-shadow: var(--shadow);
-  transition: background .15s ease, border-color .15s ease, transform .06s ease;
 }
 
 /* ========== Footer ========== */
