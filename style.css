@@ -264,81 +264,94 @@ body {
   gap: 24px;          /* was 16px */
 }
 
-/* ===== Grid of 4 hover-reveal skill cards ===== */
-.skills-grid {
+
+
+
+/* ===== Skills: 4 hover buttons with popovers ===== */
+.skills-grid{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
+  align-items: start;
 }
 
-/* Card shell */
-.skills-card {
+.skills-tile{
   position: relative;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: transparent;
-  padding: 28px 16px 16px; /* extra top padding for the title pill */
-  min-height: 140px;
-  transition: background .2s ease, border-color .2s ease, transform .06s ease;
-}
-.skills-card:hover {
-  background: rgba(255,255,255,0.05);
-  border-color: rgba(255,255,255,0.18);
-  transform: translateY(-1px);
+  outline: none;            /* we’ll handle focus visibly on the button */
+  z-index: 0;               /* create stacking context for the popover */
 }
 
-/* Centered title pill */
-.skills-card-title {
+/* Reuse your button look via .contact-item; just make it “button-y” */
+.skills-btn{
+  width: 100%;
+  cursor: pointer;
+  min-height: 44px;
+  gap: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+.skills-btn:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Hidden popover with chips; no space is reserved in layout */
+.skills-popover{
   position: absolute;
-  top: -12px;
   left: 50%;
-  transform: translateX(-50%);
-  padding: 6px 14px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text);
+  top: calc(100% + 10px);
+  transform: translateX(-50%) translateY(6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
   background: var(--navy-deep);
   border: 1px solid var(--border);
-  border-radius: 999px;
-  white-space: nowrap;
+  border-radius: 12px;
   box-shadow: var(--shadow);
+  padding: 12px;
+  width: max-content;
+  max-width: min(520px, 90vw);
 }
 
-/* Hide the list until hover/focus */
-.skills-card .skills {
-  margin-top: 12px;      /* space under the title */
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transform: translateY(4px);
-  transition: opacity .2s ease, max-height .3s ease, transform .2s ease;
-  pointer-events: none;
+/* little arrow */
+.skills-popover::before{
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px; height: 10px;
+  background: var(--navy-deep);
+  border-left: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  transform: translateX(-50%) rotate(45deg);
 }
 
-/* Reveal on hover or keyboard focus */
-.skills-card:hover .skills,
-.skills-card:focus-within .skills {
+/* reveal on hover or keyboard focus */
+.skills-tile:hover .skills-popover,
+.skills-tile:focus-within .skills-popover{
   opacity: 1;
-  max-height: 400px;     /* big enough for the chips */
-  transform: translateY(0);
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
 
-/* Responsive: 2-up then 1-up, and always expanded on touch */
-@media (max-width: 1100px) {
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .skills-grid { grid-template-columns: 1fr; }
+/* spacing inside popover */
+.skills-popover .skills{
+  margin: 0;
 }
 
-/* Touch devices (no hover): show lists by default */
-@media (hover: none) {
-  .skills-card .skills {
-    opacity: 1;
-    max-height: none;
-    transform: none;
-    pointer-events: auto;
-  }
+/* Responsive: 2-wide then 1-wide */
+@media (max-width: 1100px){
+  .skills-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px){
+  .skills-grid{ grid-template-columns: 1fr; }
+}
+
+/* Touch: show on tap via focus-within; if device truly has no hover, keep behavior the same */
+@media (hover: none){
+  /* Nothing forced open; tapping focuses the tile and reveals it via :focus-within */
 }
 
