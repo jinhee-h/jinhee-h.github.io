@@ -172,6 +172,15 @@ body{
 .degree { font-weight: 600; }
 .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
 
+/* Highlighted Education */
+.highlight-edu {
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow);
+}
+
 /* ========== Footer ========== */
 .site-footer--fixed {
   position: static;
