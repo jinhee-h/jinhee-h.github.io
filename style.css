@@ -246,3 +246,15 @@ body {
   .tabs { flex-wrap: wrap; }
   .avatar { width: 136px; }
 }
+
+/* === Spacing tweaks === */
+
+/* 1) More space between "Skills" heading and the first box */
+.subsection-title { 
+  margin: 0 0 18px;  /* was 12px */
+}
+
+/* 2) More space between each box's title pill and the chips */
+.skills-box .skills { 
+  margin-top: 14px;  /* was 8px */
+}
