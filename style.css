@@ -101,8 +101,6 @@ body{
 .name { font-size: 1.8rem; margin: 6px 0 2px; font-weight: 800; }
 .tagline { margin: 0 0 14px; color: var(--muted); }
 
-/* Contact buttons */
-.contact { display: grid; gap: 10px; width: 100%; }
 .contact-item {
   color: var(--text);
   text-decoration: none;
@@ -114,15 +112,22 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px; /* space between icon and text */
+  font-size: 0.95rem;
+  font-weight: 500;
 }
-.contact-item:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.22); transform: translateY(-1px); }
+.contact-item:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
 
 /* Contact icons */
 .icon {
-  width: 20px;
-  height: 20px;
-  display: block;
+  width: 18px;
+  height: 18px;
 }
+
 
 /* ========== Content ========== */
 .content { display: grid; gap: 22px; }
