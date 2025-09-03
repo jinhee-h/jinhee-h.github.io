@@ -35,7 +35,7 @@ body{
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* brand left, tabs right */
+  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 20px;
@@ -43,7 +43,7 @@ body{
 }
 
 .brand {
-  font-weight: 400; /* not bold */
+  font-weight: 400;
   color: var(--text);
   font-size: 1.2rem;
 }
@@ -71,7 +71,7 @@ body{
   margin: 28px auto;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: 1fr 3fr; /* 25% / 75% */
+  grid-template-columns: 1fr 3fr;
   gap: 22px;
 }
 
@@ -88,7 +88,7 @@ body{
 
 .avatar {
   width: 160px;
-  aspect-ratio: 1 / 1;   /* ✅ ratio fix */
+  aspect-ratio: 1 / 1;
   height: auto;
   object-fit: cover;
   object-position: 50% 50%;
@@ -101,6 +101,13 @@ body{
 .name { font-size: 1.8rem; margin: 6px 0 2px; font-weight: 800; }
 .tagline { margin: 0 0 14px; color: var(--muted); }
 
+/* Contact buttons */
+.contact { 
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* spacing between buttons */
+  width: 100%;
+}
 .contact-item {
   color: var(--text);
   text-decoration: none;
@@ -112,7 +119,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* space between icon and text */
+  gap: 8px;
   font-size: 0.95rem;
   font-weight: 500;
 }
@@ -121,13 +128,10 @@ body{
   border-color: rgba(255,255,255,0.22);
   transform: translateY(-1px);
 }
-
-/* Contact icons */
 .icon {
   width: 18px;
   height: 18px;
 }
-
 
 /* ========== Content ========== */
 .content { display: grid; gap: 22px; }
@@ -186,8 +190,6 @@ body{
 .education li + li { margin-top: 8px; }
 .degree { font-weight: 600; }
 .meta { color: var(--muted); font-size: .95rem; margin-top: 2px; }
-
-/* Highlighted Education */
 .highlight-edu {
   border: 1px solid var(--border);
   border-radius: 12px;
