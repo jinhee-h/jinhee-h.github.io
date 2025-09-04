@@ -148,9 +148,9 @@ body{
 
 .gpa {
   float: right;
-  font-weight: 500;
-  color: var(--muted);
-  font-size: 0.95rem;
+  font-weight: 600;   /* matches .degree */
+  font-size: inherit; /* same size as university name */
+  color: inherit;     /* same color as university name */
 }
 
 /* =============================
