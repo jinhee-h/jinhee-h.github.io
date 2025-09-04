@@ -102,7 +102,7 @@ body {
 .contact {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* spacing between buttons */
+  gap: 12px;
   width: 100%;
 }
 .contact-item {
@@ -149,19 +149,18 @@ body {
 
 .section p { line-height: 1.7; margin: 0; color: #e6edf7; }
 
-/* Thin dividers for subsections */
 .subdivider {
   border: none;
   border-top: 1px solid rgba(255,255,255,0.15);
   margin: 22px 0;
 }
 .subsection-title {
-  margin: 0 0 12px;
+  margin: 0 0 18px;
   font-size: 1.15rem;
   font-weight: 600;
 }
 
-/* Skills chips (used inside boxes) */
+/* Skills chips */
 .skills {
   list-style: none;
   margin: 0;
@@ -177,43 +176,6 @@ body {
   padding: 6px 12px;
   box-shadow: var(--shadow);
   white-space: nowrap;
-}
-
-/* ===== Grouped Skills: full-width boxes with centered title pill ===== */
-.skills-groups {
-  display: grid;
-  gap: 16px; /* space between boxes */
-}
-
-/* Outer box: outline only, full width */
-.skills-box {
-  position: relative;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: transparent;           /* no fill */
-  padding: 28px 16px 16px;           /* extra top padding so chips sit lower */
-}
-
-/* Centered title pill sitting on the top edge */
-.skills-box-title {
-  position: absolute;
-  top: -12px;                        /* overlaps the border slightly */
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 6px 14px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text);
-  background: var(--navy-deep);      /* blends with card to look “cut-out” */
-  border: 1px solid var(--border);
-  border-radius: 999px;              /* pill */
-  white-space: nowrap;
-  box-shadow: var(--shadow);
-}
-
-/* Chips inside the box */
-.skills-box .skills {
-  margin-top: 8px;                   /* breathing room under the pill */
 }
 
 /* Education */
@@ -239,7 +201,7 @@ body {
   color: var(--muted);
 }
 
-/* ========== Responsive (general) ========== */
+/* ========== Responsive ========== */
 @media (max-width: 960px) {
   .container { grid-template-columns: 1fr; }
   .sidebar .profile { position: static; }
@@ -247,27 +209,7 @@ body {
   .avatar { width: 136px; }
 }
 
-/* === Spacing tweaks === */
-
-/* 1) More space between "Skills" heading and first box */
-.subsection-title { 
-  margin: 0 0 18px;   /* was 12px */
-}
-
-/* 2) More space between each box's title pill and the chips */
-.skills-box .skills { 
-  margin-top: 14px;   /* was 8px */
-}
-
-/* 3) More space between each skills box */
-.skills-groups {
-  gap: 24px;          /* was 16px */
-}
-
-
-
-
-/* ===== Skills: 4 hover buttons with popovers ===== */
+/* ===== Skills Grid ===== */
 .skills-grid{
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -277,29 +219,21 @@ body {
 
 .skills-tile{
   position: relative;
-  outline: none;            /* we’ll handle focus visibly on the button */
-  z-index: 0;               /* create stacking context for the popover */
+  z-index: 0;
 }
 
-/* Reuse your button look via .contact-item; just make it “button-y” */
 .skills-btn{
   width: 100%;
-  cursor: pointer;
+  cursor: default; /* not clickable */
   min-height: 44px;
-  gap: 8px;
   text-align: center;
   font-weight: 600;
 }
-.skills-btn:focus-visible{
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
 
-/* Hidden popover with chips; no space is reserved in layout */
 .skills-popover{
   position: absolute;
-  left: 50%;
   top: calc(100% + 10px);
+  left: 50%;
   transform: translateX(-50%) translateY(6px);
   opacity: 0;
   visibility: hidden;
@@ -314,44 +248,52 @@ body {
   max-width: min(520px, 90vw);
 }
 
-/* little arrow */
 .skills-popover::before{
   content: "";
   position: absolute;
   top: -6px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(45deg);
   width: 10px; height: 10px;
   background: var(--navy-deep);
   border-left: 1px solid var(--border);
   border-top: 1px solid var(--border);
-  transform: translateX(-50%) rotate(45deg);
 }
 
-/* reveal on hover or keyboard focus */
-.skills-tile:hover .skills-popover,
-.skills-tile:focus-within .skills-popover{
+.skills-tile:hover .skills-popover{
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
 
-/* spacing inside popover */
-.skills-popover .skills{
-  margin: 0;
+/* CAD → right-aligned */
+.skills-grid .skills-tile:nth-child(1) .skills-popover{
+  left: 0;
+  right: auto;
+  transform: translateX(0) translateY(6px);
+}
+.skills-grid .skills-tile:nth-child(1) .skills-popover::before{
+  left: 24px;
+  transform: rotate(45deg);
 }
 
-/* Responsive: 2-wide then 1-wide */
+/* Fabrication → left-aligned */
+.skills-grid .skills-tile:nth-child(4) .skills-popover{
+  right: 0;
+  left: auto;
+  transform: translateX(0) translateY(6px);
+}
+.skills-grid .skills-tile:nth-child(4) .skills-popover::before{
+  right: 24px;
+  left: auto;
+  transform: rotate(45deg);
+}
+
+/* Responsive: 2 columns then 1 */
 @media (max-width: 1100px){
   .skills-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 600px){
   .skills-grid{ grid-template-columns: 1fr; }
 }
-
-/* Touch: show on tap via focus-within; if device truly has no hover, keep behavior the same */
-@media (hover: none){
-  /* Nothing forced open; tapping focuses the tile and reveals it via :focus-within */
-}
-
