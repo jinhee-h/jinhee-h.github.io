@@ -146,6 +146,13 @@ body{
   box-shadow:var(--shadow);
 }
 
+.gpa {
+  float: right;
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 /* =============================
    FOOTER
 ============================= */
