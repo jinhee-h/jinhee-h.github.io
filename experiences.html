@@ -3,28 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Experiences – Jinhee Han</title>
+  <title>Jinhee | Experiences</title>
+  <meta name="description" content="Experience timeline for Jinhee Han." />
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <nav class="nav">
+    <div class="header-inner">
+      <div class="brand">Jinhee Han</div>
+      <nav class="tabs" aria-label="Primary">
         <a class="tab" href="index.html">Home</a>
         <a class="tab active" href="experiences.html">Experiences</a>
         <a class="tab" href="projects.html">Projects</a>
+        <a class="tab" href="about.html">About</a>
       </nav>
     </div>
-    <div class="tab-spacer"></div>
   </header>
 
-  <main class="container">
-    <h1>Experiences</h1>
-    <ul class="timeline">
-      <li>
-        <div class="role">Mechanical Engineering Intern — Company A</div>
-        <div class="meta">Jun–Aug 2025 · Boston, MA</div>
-        <div class="desc">Prepared CAD assemblies; iterated prototypes; validated fit and tolerance; collaborated with manufacturing.</div>
-      </li>
-      <li>
-        <div class="
+  <main class="container container--single">
+    <section class="content-full">
+      <h1>Experiences</h1>
+
+      <ul class="timeline">
+        <li class="timeline-item card section">
+          <div class="role">Mechanical Engineering Intern — Company A</div>
+          <div class="meta">Jun–Aug 2025 · Boston, MA</div>
+          <p class="desc">
+            Prepared CAD assemblies; iterated prototypes; validated fit and tolerance; collaborated with manufacturing.
+          </p>
+        </li>
+
+        <li class="timeline-item card section">
+          <div class="role">Robotics Team Member — Northeastern (Club/Team)</div>
+          <div class="meta">2024–Present · Boston, MA</div>
+          <p class="desc">
+            Designed and fabricated mechanisms; supported testing; contributed to subsystem integration and documentation.
+          </p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer site-footer--fixed">
+    <p>© <span id="year"></span> GitHub</p>
+  </footer>
+</body>
+</html>
