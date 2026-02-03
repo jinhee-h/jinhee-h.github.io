@@ -1,5 +1,3 @@
-// script.js
-
 // Footer year
 (function setYear() {
   const yearEl = document.getElementById("year");
