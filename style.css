@@ -29,15 +29,6 @@ body{
   background-attachment:fixed;
 }
 
-/* Utilities */
-.visually-hidden{
-  position:absolute !important;
-  clip:rect(1px,1px,1px,1px);
-  clip-path:inset(50%);
-  height:1px; width:1px;
-  overflow:hidden; white-space:nowrap;
-}
-
 .inline-link{ color:skyblue; text-decoration:underline; font-weight:700; }
 
 a:focus-visible, button:focus-visible{
@@ -168,6 +159,14 @@ a:focus-visible, button:focus-visible{
 
 .icon{ width:18px; height:18px; }
 
+.skills-btn{
+  width:100%;
+  cursor:default;
+  min-height:44px;
+  text-align:center;
+  font-weight:600;
+}
+
 /* =============================
    TYPOGRAPHY / SECTIONS
 ============================= */
@@ -213,16 +212,6 @@ a:focus-visible, button:focus-visible{
 
 .skills-tile{ position:relative; z-index:0; }
 
-/* Not clickable (hover-only) */
-.skills-btn{
-  width:100%;
-  cursor:default;
-  min-height:44px;
-  text-align:center;
-  font-weight:600;
-}
-
-/* Popover */
 .skills-popover{
   position:absolute;
   top:calc(100% + 10px);
@@ -260,7 +249,6 @@ a:focus-visible, button:focus-visible{
   pointer-events:auto;
 }
 
-/* Skills chips */
 .skills{
   list-style:none;
   margin:0;
@@ -279,7 +267,7 @@ a:focus-visible, button:focus-visible{
   white-space:nowrap;
 }
 
-/* Edge-aware nudges (1st and 4th) */
+/* Edge-aware nudges */
 .skills-grid .skills-tile:nth-child(1) .skills-popover{
   left:0;
   transform:translateX(0) translateY(6px);
@@ -323,7 +311,7 @@ a:focus-visible, button:focus-visible{
 .meta{ color:var(--muted); font-size:.95rem; margin-top:2px; }
 
 /* =============================
-   PROJECTS GRID (simple)
+   PROJECTS GRID
 ============================= */
 .grid{
   display:grid;
@@ -344,83 +332,6 @@ a:focus-visible, button:focus-visible{
 
 .role{ font-weight:700; margin-bottom:6px; }
 .desc{ margin-top:10px; color:#e6edf7; }
-
-/* =============================
-   HOMEPAGE
-============================= */
-.container--home{
-  max-width:none;
-  width:100%;
-  margin:0;
-  padding:0 20px;
-  display:block;
-}
-
-.home{
-  min-height: calc(100vh - 60px);
-  display:grid;
-  grid-template-rows: 1fr auto;
-  gap:32px;
-  padding:0 0 24px;
-}
-
-.hero{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.hero-title{
-  margin:0;
-  text-align:center;
-  font-weight:700;
-  line-height:1;
-  letter-spacing:-0.01em;
-  font-size: clamp(2rem, 5.2vw, 3.2rem);
-  white-space:nowrap;
-  text-shadow: 0 6px 26px rgba(0,0,0,0.35);
-}
-
-.home-grid{
-  align-self:end;
-  width:100%;
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap:24px;
-}
-
-.home-card{
-  display:grid;
-  gap:10px;
-  text-decoration:none;
-  color:var(--text);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  background:rgba(255,255,255,0.06);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-  transition: transform .08s ease, background .2s ease, border-color .2s ease;
-}
-
-.home-card:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.22);
-}
-
-.home-img{
-  width:100%;
-  height:230px;
-  object-fit:cover;
-  display:block;
-}
-
-.home-label{
-  display:block;
-  text-align:center;
-  font-weight:700;
-  padding:12px 8px 14px;
-}
 
 /* =============================
    FOOTER
@@ -446,12 +357,9 @@ a:focus-visible, button:focus-visible{
   .container{ grid-template-columns:1fr; }
   .sidebar .profile{ position:static; }
   .avatar{ width:136px; }
-  .home-grid{ grid-template-columns:1fr; }
-  .home-img{ height:200px; }
   .grid{ grid-template-columns: 1fr; }
 }
 
 @media (max-width:600px){
   .skills-grid{ grid-template-columns:1fr; }
-  .hero-title{ white-space:normal; }
 }
