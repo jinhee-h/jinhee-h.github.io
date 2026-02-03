@@ -17,6 +17,7 @@
 ============================= */
 *{ box-sizing:border-box; }
 html,body{ height:100%; margin:0; }
+
 body{
   color:var(--text);
   font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -36,7 +37,7 @@ body{
   height:1px; width:1px;
   overflow:hidden; white-space:nowrap;
 }
-.section p + p{ margin-top:.8rem; }
+
 .inline-link{ color:skyblue; text-decoration:underline; font-weight:700; }
 
 a:focus-visible, button:focus-visible{
@@ -55,41 +56,78 @@ a:focus-visible, button:focus-visible{
   -webkit-backdrop-filter:saturate(160%) blur(6px);
   backdrop-filter:saturate(160%) blur(6px);
 }
+
 .header-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  max-width:1200px; margin:0 auto; padding:10px 20px; height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1200px;
+  margin:0 auto;
+  padding:10px 20px;
+  height:60px;
 }
+
 .brand{ font-weight:400; color:var(--text); font-size:1.2rem; }
-.tabs{ display:flex; gap:8px; }
+
+.tabs{ display:flex; gap:8px; flex-wrap:wrap; }
+
 .tab{
-  text-decoration:none; color:var(--text);
-  padding:10px 14px; border:1px solid var(--border); border-radius:12px;
+  text-decoration:none;
+  color:var(--text);
+  padding:10px 14px;
+  border:1px solid var(--border);
+  border-radius:12px;
   background:rgba(255,255,255,0.08);
   transition:transform .06s ease, background .2s ease, border-color .2s ease;
 }
-.tab:hover{ background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.22); transform:translateY(-1px); }
-.tab.active{ background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.28); font-weight:600; }
+
+.tab:hover{
+  background:rgba(255,255,255,0.14);
+  border-color:rgba(255,255,255,0.22);
+  transform:translateY(-1px);
+}
+
+.tab.active{
+  background:rgba(255,255,255,0.18);
+  border-color:rgba(255,255,255,0.28);
+  font-weight:600;
+}
 
 /* =============================
    LAYOUT
 ============================= */
 .container{
-  max-width:1200px; margin:28px auto; padding:0 20px;
-  display:grid; grid-template-columns:1fr 3fr; gap:22px;
+  max-width:1200px;
+  margin:28px auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:1fr 3fr;
+  gap:22px;
 }
-.content{ display:grid; gap:22px; }
 
-/* Sidebar card */
+.container--single{
+  grid-template-columns: 1fr;
+}
+
+.content{ display:grid; gap:22px; }
+.content-full{ width:100%; }
+
+/* Cards */
 .card{
   background:var(--navy-deep);
   border:1px solid var(--border);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
 }
+
 .section{ padding:22px; }
+
+/* Sidebar card */
 .sidebar .profile{
   position:sticky; top:88px;
-  display:flex; flex-direction:column; align-items:center; text-align:center; padding:22px;
+  display:flex; flex-direction:column;
+  align-items:center; text-align:center;
+  padding:22px;
 }
 
 /* =============================
@@ -103,70 +141,65 @@ a:focus-visible, button:focus-visible{
   box-shadow:var(--shadow);
   margin-bottom:14px;
 }
+
 .name{ font-size:1.8rem; margin:6px 0 2px; font-weight:800; }
 .tagline{ margin:0 0 14px; color:var(--muted); }
 
 /* Contact buttons */
 .contact{ display:flex; flex-direction:column; gap:12px; width:100%; }
+
 .contact-item{
-  color:var(--text); text-decoration:none;
-  padding:10px 12px; border:1px solid var(--border); border-radius:12px;
+  color:var(--text);
+  text-decoration:none;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:12px;
   background:rgba(255,255,255,0.08);
   transition:background .15s ease, border-color .15s ease, transform .06s ease;
   display:flex; align-items:center; justify-content:center; gap:8px;
   font-size:.95rem; font-weight:500;
 }
-.contact-item:hover{ background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.22); transform:translateY(-1px); }
+
+.contact-item:hover{
+  background:rgba(255,255,255,0.14);
+  border-color:rgba(255,255,255,0.22);
+  transform:translateY(-1px);
+}
+
 .icon{ width:18px; height:18px; }
 
 /* =============================
    TYPOGRAPHY / SECTIONS
 ============================= */
 .section-title{
-  margin:0 0 12px; font-size:1.6rem; font-weight:700;
-  border-bottom:1px solid rgba(255,255,255,0.18); padding-bottom:8px;
-}
-.section p{ line-height:1.7; margin:0; color:#e6edf7; }
-.subdivider{ border:none; border-top:1px solid rgba(255,255,255,0.15); margin:22px 0; }
-.subsection-title{ margin:0 0 18px; font-size:1.15rem; font-weight:600; }
-
-/* Skills chips */
-.skills{
-  list-style:none; margin:0; padding:0;
-  display:flex; flex-wrap:wrap; gap:10px;
-}
-.skills li{
-  background:rgba(255,255,255,0.08);
-  border:1px solid var(--border);
-  border-radius:12px; padding:6px 12px;
-  box-shadow:var(--shadow);
-  white-space:nowrap;
+  margin:0 0 12px;
+  font-size:1.6rem;
+  font-weight:700;
+  border-bottom:1px solid rgba(255,255,255,0.18);
+  padding-bottom:8px;
 }
 
-/* Education */
-.education{ list-style:none; padding:0; margin:0; }
-.education li + li{ margin-top:8px; }
-.degree{ font-weight:600; }
-.meta{ color:var(--muted); font-size:.95rem; margin-top:2px; }
-.highlight-edu{
-  border:1px solid var(--border); border-radius:12px; padding:12px;
-  background:rgba(255,255,255,0.08);
-  box-shadow:var(--shadow);
-}
-.gpa {
-  float: right;
-  font-weight: 600;
-  font-size: inherit;
-  color: inherit;
+.section p{
+  line-height:1.7;
+  margin:0;
+  color:#e6edf7;
 }
 
-/* =============================
-   FOOTER
-============================= */
-.site-footer--fixed{
-  position:static; text-align:center; padding:16px 0;
-  border-top:1px solid var(--border); background:transparent; color:var(--muted);
+.section p + p{ margin-top:.8rem; }
+
+.subdivider{
+  border:none;
+  border-top:1px solid rgba(255,255,255,0.15);
+  margin:22px 0;
 }
+
+.subsection-title{
+  margin:0 0 18px;
+  font-size:1.15rem;
+  font-weight:600;
+}
+
+.text-muted{ color: var(--muted); }
 
 /* =============================
    SKILLS GRID + POPOVERS
@@ -177,6 +210,7 @@ a:focus-visible, button:focus-visible{
   gap:16px;
   align-items:start;
 }
+
 .skills-tile{ position:relative; z-index:0; }
 
 /* Not clickable (hover-only) */
@@ -188,13 +222,15 @@ a:focus-visible, button:focus-visible{
   font-weight:600;
 }
 
-/* Popover base (centered under tile by default) */
+/* Popover */
 .skills-popover{
   position:absolute;
   top:calc(100% + 10px);
   left:50%;
   transform:translateX(-50%) translateY(6px);
-  opacity:0; visibility:hidden; pointer-events:none;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
 
   background:var(--navy-deep);
   border:1px solid var(--border);
@@ -204,9 +240,12 @@ a:focus-visible, button:focus-visible{
   width:max-content;
   max-width:min(520px, 90vw);
 }
+
 .skills-popover::before{
   content:"";
-  position:absolute; top:-6px; left:50%;
+  position:absolute;
+  top:-6px;
+  left:50%;
   transform:translateX(-50%) rotate(45deg);
   width:10px; height:10px;
   background:var(--navy-deep);
@@ -214,89 +253,152 @@ a:focus-visible, button:focus-visible{
   border-top:1px solid var(--border);
 }
 
-/* Reveal on hover only */
 .skills-tile:hover .skills-popover{
-  opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);
+  opacity:1;
+  visibility:visible;
+  transform:translateX(-50%) translateY(0);
   pointer-events:auto;
 }
 
-/* Edge-aware nudges */
-/* 1) CAD (tile 1): bias right */
-.skills-grid .skills-tile:nth-child(1) .skills-popover{
-  left:0; right:auto; transform:translateX(0) translateY(6px);
-}
-.skills-grid .skills-tile:nth-child(1) .skills-popover::before{
-  left:24px; transform:rotate(45deg);
+/* Skills chips */
+.skills{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
-/* 4) Fabrication (tile 4): bias left */
+.skills li{
+  background:rgba(255,255,255,0.08);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:6px 12px;
+  box-shadow:var(--shadow);
+  white-space:nowrap;
+}
+
+/* Edge-aware nudges (1st and 4th) */
+.skills-grid .skills-tile:nth-child(1) .skills-popover{
+  left:0;
+  transform:translateX(0) translateY(6px);
+}
+.skills-grid .skills-tile:nth-child(1) .skills-popover::before{
+  left:24px;
+  transform:rotate(45deg);
+}
+
 .skills-grid .skills-tile:nth-child(4) .skills-popover{
-  right:0; left:auto; transform:translateX(0) translateY(6px);
+  right:0; left:auto;
+  transform:translateX(0) translateY(6px);
 }
 .skills-grid .skills-tile:nth-child(4) .skills-popover::before{
-  right:24px; left:auto; transform:rotate(45deg);
+  right:24px; left:auto;
+  transform:rotate(45deg);
 }
 
 /* =============================
-   HOMEPAGE (index.html) — updated
+   EDUCATION
+============================= */
+.education{ list-style:none; padding:0; margin:0; }
+
+.highlight-edu{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  background:rgba(255,255,255,0.08);
+  box-shadow:var(--shadow);
+}
+
+.edu-row{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.degree{ font-weight:600; }
+.gpa{ font-weight:600; }
+.meta{ color:var(--muted); font-size:.95rem; margin-top:2px; }
+
+/* =============================
+   PROJECTS GRID (simple)
+============================= */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:22px;
+}
+
+/* =============================
+   TIMELINE
+============================= */
+.timeline{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:16px;
+}
+
+.role{ font-weight:700; margin-bottom:6px; }
+.desc{ margin-top:10px; color:#e6edf7; }
+
+/* =============================
+   HOMEPAGE
 ============================= */
 .container--home{
-  /* make the homepage span the full width */
-  max-width: none;
-  width: 100%;
-  margin: 0;
-  padding: 0 20px;
+  max-width:none;
+  width:100%;
+  margin:0;
+  padding:0 20px;
+  display:block;
 }
 
 .home{
-  /* fill viewport under the fixed header (≈60px) */
   min-height: calc(100vh - 60px);
-  display: grid;
-  grid-template-rows: 1fr auto; /* center title, stick cards to bottom */
-  gap: 32px;
-  padding: 0 0 24px; /* breathing room at the bottom */
+  display:grid;
+  grid-template-rows: 1fr auto;
+  gap:32px;
+  padding:0 0 24px;
 }
 
-/* Center the title dead-center in the available space */
 .hero{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* nudge upward slightly so it feels top-ish center if desired: comment out if not needed */
-  /* transform: translateY(-4vh); */
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-/* Single line, slightly smaller, slightly less bold (still bold) */
 .hero-title{
-  margin: 0;
-  text-align: center;
-  font-weight: 700;                 /* was 800 */
-  line-height: 1;
-  letter-spacing: -0.01em;          /* lighter tracking */
-  font-size: clamp(2rem, 5.2vw, 3.2rem);  /* slightly reduced */
-  white-space: nowrap;              /* force one line */
+  margin:0;
+  text-align:center;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-0.01em;
+  font-size: clamp(2rem, 5.2vw, 3.2rem);
+  white-space:nowrap;
   text-shadow: 0 6px 26px rgba(0,0,0,0.35);
 }
 
-/* Cards sit at the bottom and span the full horizontal length */
 .home-grid{
-  align-self: end;                  /* pin to bottom of the screen */
-  width: 100%;
-  display: grid;
+  align-self:end;
+  width:100%;
+  display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;                        /* even spacing */
+  gap:24px;
 }
 
 .home-card{
-  display: grid;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: rgba(255,255,255,0.06);
-  box-shadow: var(--shadow);
-  overflow: hidden;
+  display:grid;
+  gap:10px;
+  text-decoration:none;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,0.06);
+  box-shadow:var(--shadow);
+  overflow:hidden;
   transition: transform .08s ease, background .2s ease, border-color .2s ease;
 }
 
@@ -307,54 +409,29 @@ a:focus-visible, button:focus-visible{
 }
 
 .home-img{
-  width: 100%;
-  height: 230px;    /* a bit taller so the row feels anchored */
-  object-fit: cover;
-  display: block;
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
 }
 
 .home-label{
-  display: block;
-  text-align: center;
-  font-weight: 700;
-  padding: 12px 8px 14px;
+  display:block;
+  text-align:center;
+  font-weight:700;
+  padding:12px 8px 14px;
 }
 
-/* Responsive: stack the cards but keep them at the bottom */
-@media (max-width: 960px){
-  .home-grid{ grid-template-columns: 1fr; }
-  .home-img{ height: 200px; }
-}
-
-
-.home-card{
-  display: grid;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: rgba(255,255,255,0.06);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  transition: transform .08s ease, background .2s ease, border-color .2s ease;
-}
-.home-card:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.22);
-}
-.home-img{
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-}
-.home-label{
-  display: block;
-  text-align: center;
-  font-weight: 700;
-  padding: 12px 8px 14px;
+/* =============================
+   FOOTER
+============================= */
+.site-footer--fixed{
+  position:static;
+  text-align:center;
+  padding:16px 0;
+  border-top:1px solid var(--border);
+  background:transparent;
+  color:var(--muted);
 }
 
 /* =============================
@@ -362,15 +439,19 @@ a:focus-visible, button:focus-visible{
 ============================= */
 @media (max-width:1100px){
   .skills-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
 @media (max-width:960px){
   .container{ grid-template-columns:1fr; }
   .sidebar .profile{ position:static; }
-  .tabs{ flex-wrap:wrap; }
   .avatar{ width:136px; }
-  .home-grid{ grid-template-columns: 1fr; }
-  .home-img{ height: 200px; }
+  .home-grid{ grid-template-columns:1fr; }
+  .home-img{ height:200px; }
+  .grid{ grid-template-columns: 1fr; }
 }
+
 @media (max-width:600px){
   .skills-grid{ grid-template-columns:1fr; }
+  .hero-title{ white-space:normal; }
 }
