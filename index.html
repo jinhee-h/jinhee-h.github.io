@@ -4,11 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jinhee | Portfolio</title>
+  <meta name="description" content="Mechanical engineering portfolio of Jinhee Han." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Top Nav -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand">Jinhee Han</div>
@@ -21,7 +24,6 @@
     </div>
   </header>
 
-  <!-- Homepage Layout -->
   <main class="container container--home">
     <section class="home">
       <div class="hero">
@@ -47,14 +49,8 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer site-footer--fixed">
     <p>© <span id="year"></span> GitHub</p>
   </footer>
-
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
