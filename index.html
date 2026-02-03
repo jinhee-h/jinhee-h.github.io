@@ -3,28 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jinhee | About</title>
-  <meta name="description" content="About Jinhee Han — mechanical engineering student with an interest in robotics." />
+  <title>Jinhee Han | Mechanical Engineer</title>
+  <meta name="description" content="Mechanical engineering portfolio of Jinhee Han. Interests: robotics, CAD, embedded systems, fabrication." />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="script.js" defer></script>
 </head>
+
 <body>
+  <!-- Top Nav -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand">Jinhee Han</div>
       <nav class="tabs" aria-label="Primary">
-        <a class="tab" href="index.html">Home</a>
+        <a class="tab active" href="index.html">About</a>
         <a class="tab" href="experiences.html">Experiences</a>
         <a class="tab" href="projects.html">Projects</a>
-        <a class="tab active" href="about.html">About</a>
       </nav>
     </div>
   </header>
 
+  <!-- Main Layout -->
   <main class="container">
+    <!-- Left Sidebar -->
     <aside class="sidebar" aria-label="Profile">
       <div class="card profile">
         <img class="avatar" src="assets/profile.jpg" alt="Portrait of Jinhee" />
@@ -57,13 +60,15 @@
       </div>
     </aside>
 
+    <!-- Right Content -->
     <section class="content">
       <article class="card section">
-        <h2 class="section-title">About</h2>
+        <h2 class="section-title">About Me</h2>
         <p>
           I’m a third-year Mechanical Engineering student at Northeastern University with a strong interest in robotics.
           I’m eager to gain real-world experience working with robotics and systems.
         </p>
+
         <p>
           <strong>If you’d prefer a condensed PDF version of my portfolio, you can view it</strong>
           <a href="[insert link here]" target="_blank" rel="noopener" class="inline-link">here</a>.
@@ -148,6 +153,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer site-footer--fixed">
     <p>© <span id="year"></span> GitHub</p>
   </footer>
