@@ -253,8 +253,8 @@ a:focus-visible, button:focus-visible{
 .highlight-edu{
   border:1px solid var(--border);
   border-radius:12px;
-  padding:12px;
-  background:rgba(255,255,255,0.08);
+  padding:14px; /* match skills-card */
+  background:rgba(255,255,255,0.06); /* match skills-card */
   box-shadow:var(--shadow);
 }
 
@@ -265,9 +265,19 @@ a:focus-visible, button:focus-visible{
   gap:12px;
 }
 
-.degree{ font-weight:600; }
-.gpa{ font-weight:600; }
-.meta{ color:var(--muted); font-size:.95rem; margin-top:2px; }
+/* Match Education header sizing to skills-card-title */
+.degree,
+.gpa{
+  font-size:1rem;      /* same as .skills-card-title */
+  font-weight:700;    /* same as .skills-card-title */
+}
+
+/* Meta stays muted */
+.meta{
+  color:var(--muted);
+  font-size:.95rem;
+  margin-top:2px;
+}
 
 /* =============================
    PROJECTS GRID (simple)
