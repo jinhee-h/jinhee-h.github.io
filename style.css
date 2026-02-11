@@ -1,6 +1,4 @@
-/* =============================
-   THEME TOKENS
-============================= */
+/* ============================= THEME TOKENS ============================= */
 :root{
   --bg-fallback:#0A1730;
   --navy-deep:rgba(15,18,32,0.95);
@@ -12,9 +10,7 @@
   --radius:18px;
 }
 
-/* =============================
-   BASE
-============================= */
+/* ============================= BASE ============================= */
 *{ box-sizing:border-box; }
 html,body{ height:100%; margin:0; }
 
@@ -46,9 +42,7 @@ a:focus-visible, button:focus-visible{
   border-radius:8px;
 }
 
-/* =============================
-   HEADER / NAV
-============================= */
+/* ============================= HEADER / NAV ============================= */
 .site-header{
   position:sticky; top:0; z-index:10;
   background:var(--navy-deep);
@@ -93,9 +87,7 @@ a:focus-visible, button:focus-visible{
   font-weight:600;
 }
 
-/* =============================
-   LAYOUT
-============================= */
+/* ============================= LAYOUT ============================= */
 .container{
   max-width:1200px;
   margin:28px auto;
@@ -130,9 +122,7 @@ a:focus-visible, button:focus-visible{
   padding:22px;
 }
 
-/* =============================
-   PROFILE
-============================= */
+/* ============================= PROFILE ============================= */
 .avatar{
   width:160px; aspect-ratio:1/1; height:auto;
   object-fit:cover; object-position:50% 50%;
@@ -168,9 +158,7 @@ a:focus-visible, button:focus-visible{
 
 .icon{ width:18px; height:18px; }
 
-/* =============================
-   TYPOGRAPHY / SECTIONS
-============================= */
+/* ============================= TYPOGRAPHY / SECTIONS ============================= */
 .section-title{
   margin:0 0 12px;
   font-size:1.6rem;
@@ -201,13 +189,12 @@ a:focus-visible, button:focus-visible{
 
 .text-muted{ color: var(--muted); }
 
-/* =============================
-   SKILLS GRID
-============================= */
+/* ============================= SKILLS GRID ============================= */
 .skills-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(0, 1fr));
   gap:16px;
+  align-items:start;
 }
 
 .skills-card{
@@ -220,12 +207,12 @@ a:focus-visible, button:focus-visible{
 
 .skills-card-title{
   font-weight:700;
-  font-size:1rem;
   margin:0 0 10px;
   padding-bottom:8px;
   border-bottom:1px solid rgba(255,255,255,0.12);
 }
 
+/* Skills chips */
 .skills{
   list-style:none;
   margin:0;
@@ -244,9 +231,7 @@ a:focus-visible, button:focus-visible{
   white-space:nowrap;
 }
 
-/* =============================
-   EDUCATION
-============================= */
+/* ============================= EDUCATION (UPDATED & UNIFIED) ============================= */
 .education{ list-style:none; padding:0; margin:0; }
 
 .highlight-edu{
@@ -264,32 +249,39 @@ a:focus-visible, button:focus-visible{
   gap:12px;
 }
 
-/* Match Education header sizing to skills-card-title */
 .degree,
 .gpa{
-  font-size:1rem;      /* same as .skills-card-title */
-  font-weight:700;    /* same as .skills-card-title */
+  font-size:1rem;
+  font-weight:700; /* match skills-card-title */
 }
 
-/* Meta stays muted */
 .meta{
   color:var(--muted);
   font-size:.95rem;
   margin-top:2px;
 }
 
-/* =============================
-   PROJECTS GRID
-============================= */
+/* ============================= PROJECTS GRID (simple) ============================= */
 .grid{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:22px;
 }
 
-/* =============================
-   FOOTER
-============================= */
+/* ============================= TIMELINE ============================= */
+.timeline{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:16px;
+}
+
+.timeline-item{ display:block; }
+.role{ font-weight:700; margin-bottom:6px; }
+.desc{ margin-top:10px; color:#e6edf7; }
+
+/* ============================= FOOTER ============================= */
 .site-footer--fixed{
   position:static;
   text-align:center;
@@ -299,9 +291,7 @@ a:focus-visible, button:focus-visible{
   color:var(--muted);
 }
 
-/* =============================
-   RESPONSIVE
-============================= */
+/* ============================= RESPONSIVE ============================= */
 @media (max-width:1100px){
   .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -310,6 +300,10 @@ a:focus-visible, button:focus-visible{
   .container{ grid-template-columns:1fr; }
   .sidebar .profile{ position:static; }
   .avatar{ width:136px; }
+  .home-grid{ grid-template-columns:1fr; }
+  .home-img{ height:200px; }
+  .grid{ grid-template-columns: 1fr; }
+  .timeline-head{ flex-direction:column; }
   .skills-grid{ grid-template-columns:1fr; }
 }
 
