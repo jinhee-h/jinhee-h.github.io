@@ -202,62 +202,28 @@ a:focus-visible, button:focus-visible{
 .text-muted{ color: var(--muted); }
 
 /* =============================
-   SKILLS GRID + POPOVERS
+   SKILLS GRID (EXPANDED, ALWAYS VISIBLE)
 ============================= */
 .skills-grid{
   display:grid;
-  grid-template-columns:repeat(4, minmax(0, 1fr));
+  grid-template-columns:repeat(2, minmax(0, 1fr));
   gap:16px;
   align-items:start;
 }
 
-.skills-tile{ position:relative; z-index:0; }
-
-/* Not clickable (hover-only) */
-.skills-btn{
-  width:100%;
-  cursor:default;
-  min-height:44px;
-  text-align:center;
-  font-weight:600;
-}
-
-/* Popover */
-.skills-popover{
-  position:absolute;
-  top:calc(100% + 10px);
-  left:50%;
-  transform:translateX(-50%) translateY(6px);
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-
-  background:var(--navy-deep);
+.skills-card{
   border:1px solid var(--border);
   border-radius:12px;
+  padding:14px;
+  background:rgba(255,255,255,0.06);
   box-shadow:var(--shadow);
-  padding:12px;
-  width:max-content;
-  max-width:min(520px, 90vw);
 }
 
-.skills-popover::before{
-  content:"";
-  position:absolute;
-  top:-6px;
-  left:50%;
-  transform:translateX(-50%) rotate(45deg);
-  width:10px; height:10px;
-  background:var(--navy-deep);
-  border-left:1px solid var(--border);
-  border-top:1px solid var(--border);
-}
-
-.skills-tile:hover .skills-popover{
-  opacity:1;
-  visibility:visible;
-  transform:translateX(-50%) translateY(0);
-  pointer-events:auto;
+.skills-card-title{
+  font-weight:700;
+  margin:0 0 10px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(255,255,255,0.12);
 }
 
 /* Skills chips */
@@ -277,25 +243,6 @@ a:focus-visible, button:focus-visible{
   padding:6px 12px;
   box-shadow:var(--shadow);
   white-space:nowrap;
-}
-
-/* Edge-aware nudges (1st and 4th) */
-.skills-grid .skills-tile:nth-child(1) .skills-popover{
-  left:0;
-  transform:translateX(0) translateY(6px);
-}
-.skills-grid .skills-tile:nth-child(1) .skills-popover::before{
-  left:24px;
-  transform:rotate(45deg);
-}
-
-.skills-grid .skills-tile:nth-child(4) .skills-popover{
-  right:0; left:auto;
-  transform:translateX(0) translateY(6px);
-}
-.skills-grid .skills-tile:nth-child(4) .skills-popover::before{
-  right:24px; left:auto;
-  transform:rotate(45deg);
 }
 
 /* =============================
@@ -340,6 +287,10 @@ a:focus-visible, button:focus-visible{
   padding:0;
   display:grid;
   gap:16px;
+}
+
+.timeline-item{
+  display:block;
 }
 
 .role{ font-weight:700; margin-bottom:6px; }
@@ -423,9 +374,7 @@ a:focus-visible, button:focus-visible{
 }
 
 /* =============================
-   EXPERIENCES + PROJECTS: PARAGRAPHS + PROPORTIONAL IMAGES (ADDED)
-   - Keeps your homepage/skills unchanged
-   - Makes images smaller but keeps aspect ratio (no cropping)
+   EXPERIENCES + PROJECTS: PARAGRAPHS + AUTO-CENTERING GALLERIES (UPDATED)
 ============================= */
 
 /* Make role/date look nice when you use the timeline-head layout */
@@ -442,12 +391,16 @@ a:focus-visible, button:focus-visible{
   margin-top:12px;
 }
 
-/* Gallery layout: 3 across on desktop */
+/* Gallery layout:
+   - centers 1 or 2 images
+   - wraps cleanly for many images
+   - no need to force 3 columns */
 .exp-gallery,
 .proj-gallery{
   margin-top:16px;
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
   gap:14px;
 }
 
@@ -457,15 +410,15 @@ a:focus-visible, button:focus-visible{
   margin:0;
   display:grid;
   gap:8px;
+  justify-items:center;
 }
 
-/* Key: preserve proportions + shrink size */
+/* Preserve proportions + shrink size */
 .exp-img,
 .proj-img{
-  width:100%;
-  max-width:260px; /* adjust: 220px smaller / 320px larger */
-  height:auto;     /* preserves aspect ratio */
-  margin:0 auto;   /* centers inside each grid cell */
+  width:260px;   /* consistent card-friendly sizing */
+  max-width:85vw;
+  height:auto;   /* preserves aspect ratio */
   border-radius:14px;
   border:1px solid var(--border);
   box-shadow: var(--shadow);
@@ -496,7 +449,6 @@ a:focus-visible, button:focus-visible{
    RESPONSIVE
 ============================= */
 @media (max-width:1100px){
-  .skills-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
   .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -508,24 +460,16 @@ a:focus-visible, button:focus-visible{
   .home-img{ height:200px; }
   .grid{ grid-template-columns: 1fr; }
 
-  /* make experience/project galleries stack on mobile */
-  .exp-gallery,
-  .proj-gallery{
-    grid-template-columns:1fr;
-  }
-
-  .exp-img,
-  .proj-img{
-    max-width:320px;
-  }
-
   /* stack role/date nicely on mobile if you use timeline-head */
   .timeline-head{
     flex-direction:column;
   }
+
+  .skills-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 @media (max-width:600px){
-  .skills-grid{ grid-template-columns:1fr; }
   .hero-title{ white-space:normal; }
 }
