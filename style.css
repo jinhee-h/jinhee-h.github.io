@@ -269,6 +269,49 @@ a:focus-visible, button:focus-visible{
 .gpa{ font-weight:600; }
 .meta{ color:var(--muted); font-size:.95rem; margin-top:2px; }
 
+/* --- NEW: grad date + coursework box --- */
+.grad-date{
+  font-weight:600;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.coursework-box{
+  margin-top:12px;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:rgba(255,255,255,0.06);
+  box-shadow:var(--shadow);
+}
+
+.coursework-title{
+  margin:0 0 10px;
+  font-weight:700;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+  font-size:1rem;
+}
+
+.coursework-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.coursework-list li{
+  background:rgba(255,255,255,0.08);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:6px 12px;
+  box-shadow:var(--shadow);
+  white-space:nowrap;
+  font-size:.9rem;
+}
+
 /* =============================
    PROJECTS GRID (simple)
 ============================= */
